@@ -1,32 +1,30 @@
-import '../../../components/flutter_flow/flutter_flow_icon_button.dart';
-import '../../../components/flutter_flow/flutter_flow_theme.dart';
-import '../../../components/flutter_flow/flutter_flow_timer.dart';
-import '../../../components/flutter_flow/flutter_flow_util.dart';
-import 'package:stop_watch_timer/stop_watch_timer.dart';
+import '../../../../components/flutter_flow/flutter_flow_icon_button.dart';
+import '../../../../components/flutter_flow/flutter_flow_theme.dart';
+import '../../../../components/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'answer_idea2_model.dart';
-export 'answer_idea2_model.dart';
+import 'questionary_tipe_select_image_model.dart';
+export 'questionary_tipe_select_image_model.dart';
 
-class AnswerIdea2Widget extends StatefulWidget {
-  const AnswerIdea2Widget({Key? key}) : super(key: key);
+class QuestionaryTipeSelectImageWidget extends StatefulWidget {
+  const QuestionaryTipeSelectImageWidget({Key? key}) : super(key: key);
 
   @override
-  _AnswerIdea2WidgetState createState() => _AnswerIdea2WidgetState();
+  _QuestionaryTipeSelectImageWidgetState createState() =>
+      _QuestionaryTipeSelectImageWidgetState();
 }
 
-class _AnswerIdea2WidgetState extends State<AnswerIdea2Widget> {
-  late AnswerIdea2Model _model;
+class _QuestionaryTipeSelectImageWidgetState
+    extends State<QuestionaryTipeSelectImageWidget> {
+  late QuestionaryTipeSelectImageModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => AnswerIdea2Model());
-
-    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+    _model = createModel(context, () => QuestionaryTipeSelectImageModel());
   }
 
   @override
@@ -105,7 +103,7 @@ class _AnswerIdea2WidgetState extends State<AnswerIdea2Widget> {
                                   FlutterFlowTheme.of(context).accent4,
                               center: Text(
                                 FFLocalizations.of(context).getText(
-                                  '4q7r2bg7' /* 50% */,
+                                  '8ff1vseb' /* 50% */,
                                 ),
                                 textAlign: TextAlign.start,
                                 style: FlutterFlowTheme.of(context)
@@ -150,50 +148,73 @@ class _AnswerIdea2WidgetState extends State<AnswerIdea2Widget> {
                         shrinkWrap: true,
                         scrollDirection: Axis.vertical,
                         children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                40.0, 0.0, 40.0, 0.0),
-                            child: ClipRRect(
-                              borderRadius: BorderRadius.circular(8.0),
-                              child: Image.network(
-                                'https://png.pngtree.com/png-vector/20230919/ourlarge/pngtree-red-audio-or-sound-record-button-with-white-combination-color-vector-png-image_10106568.png',
-                                width: 52.0,
-                                height: 221.0,
-                                fit: BoxFit.contain,
-                              ),
+                          GridView(
+                            padding: EdgeInsets.zero,
+                            gridDelegate:
+                                SliverGridDelegateWithFixedCrossAxisCount(
+                              crossAxisCount: 2,
+                              crossAxisSpacing: 4.0,
+                              mainAxisSpacing: 10.0,
+                              childAspectRatio: 1.0,
                             ),
-                          ),
-                          FlutterFlowTimer(
-                            initialTime: _model.timerMilliseconds,
-                            getDisplayTime: (value) =>
-                                StopWatchTimer.getDisplayTime(
-                              value,
-                              hours: false,
-                              milliSecond: false,
-                            ),
-                            controller: _model.timerController,
-                            updateStateInterval: Duration(milliseconds: 1000),
-                            onChanged: (value, displayTime, shouldUpdate) {
-                              _model.timerMilliseconds = value;
-                              _model.timerValue = displayTime;
-                              if (shouldUpdate) setState(() {});
-                            },
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).headlineSmall,
-                          ),
-                          Text(
-                            FFLocalizations.of(context).getText(
-                              'tg9zwic4' /* Hello, What your name ?  */,
-                            ),
-                            textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Outfit',
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.bold,
+                            shrinkWrap: true,
+                            scrollDirection: Axis.vertical,
+                            children: [
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.network(
+                                  'https://picsum.photos/seed/268/600',
+                                  width: 300.0,
+                                  height: 200.0,
+                                  fit: BoxFit.cover,
                                 ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.network(
+                                  'https://picsum.photos/seed/628/600',
+                                  width: 300.0,
+                                  height: 200.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.network(
+                                  'https://picsum.photos/seed/599/600',
+                                  width: 300.0,
+                                  height: 200.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.network(
+                                  'https://picsum.photos/seed/882/600',
+                                  width: 300.0,
+                                  height: 200.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.network(
+                                  'https://picsum.photos/seed/203/600',
+                                  width: 300.0,
+                                  height: 200.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                              ClipRRect(
+                                borderRadius: BorderRadius.circular(8.0),
+                                child: Image.network(
+                                  'https://picsum.photos/seed/136/600',
+                                  width: 300.0,
+                                  height: 200.0,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
+                            ],
                           ),
                         ],
                       ),
@@ -232,7 +253,7 @@ class _AnswerIdea2WidgetState extends State<AnswerIdea2Widget> {
                 alignment: AlignmentDirectional(0.00, -0.35),
                 child: Text(
                   FFLocalizations.of(context).getText(
-                    'y7go9td4' /* Verificar */,
+                    'rrr41s8i' /* Verificar */,
                   ),
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Lexend Deca',

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
+import 'package:phrase_flow/app/services/questionary/store/store.dart';
+import 'package:provider/provider.dart';
 import 'backend/firebase/firebase_config.dart';
 import 'components/flutter_flow/flutter_flow_theme.dart';
 import 'components/flutter_flow/flutter_flow_util.dart';
@@ -15,7 +17,12 @@ void main() async {
 
   await FlutterFlowTheme.initialize();
 
-  runApp(MyApp());
+  runApp(MultiProvider(
+    providers: [
+      Provider<QuestionarioStore>(create: (_) => QuestionarioStore()),
+    ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {

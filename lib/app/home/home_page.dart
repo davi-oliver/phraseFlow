@@ -1,3 +1,9 @@
+import 'dart:developer';
+
+import 'package:provider/provider.dart';
+
+import '../../backend/datasource/get.dart';
+import '../../backend/datasource/results.dart';
 import '../../components/flutter_flow/flutter_flow_choice_chips.dart';
 import '../../components/flutter_flow/flutter_flow_theme.dart';
 import '../../components/flutter_flow/flutter_flow_util.dart';
@@ -7,6 +13,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:flutter/services.dart';
+import '../services/questionary/store/store.dart';
 import 'home_widgets.dart';
 export 'home_widgets.dart';
 
@@ -23,10 +30,37 @@ class _AcompanhamenttodasatividadesWidgetState
   late AcompanhamenttodasatividadesModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  Future getQuestoes() async {
+    final store = Provider.of<QuestionarioStore>(context, listen: false);
+    List listaQuestoes = [];
+    final response = await GetHttpRequestApp(context).makeGetJsonRequest(
+      url: "questions",
+    );
+    Results res = await response.fold((l) async {
+      return Results(sucess: false, message: "Erro ao buscar questões");
+    }, (r) async {
+      log("r runtype ${r.runtimeType}");
+
+      for (var i = 0; i < r.length; i++) {
+        log("item>> $i");
+        store.addQuestion(r[i]);
+      }
+      return Results(sucess: true, message: "Questões carregadas com sucesso");
+    });
+    log(name: "QuestionarioStore", "store: ${store.questions.length}");
+    log("response>> $response");
+    if (res.sucess) return true;
+    return false;
+  }
+
+  init() async {
+    await getQuestoes();
+  }
 
   @override
   void initState() {
     super.initState();
+    init();
     _model = createModel(context, () => AcompanhamenttodasatividadesModel());
 
     // On page load action.
@@ -912,57 +946,64 @@ class _AcompanhamenttodasatividadesWidgetState
                               ),
                             ),
                           ),
-
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                16.0, 0.0, 16.0, 0.0),
-                            child: GridView(
-                              padding: EdgeInsets.zero,
-                              gridDelegate:
-                                  SliverGridDelegateWithFixedCrossAxisCount(
-                                crossAxisCount: 3,
-                                crossAxisSpacing: 10.0,
-                                mainAxisSpacing: 10.0,
-                                childAspectRatio: 1.5,
+                          if (responsiveVisibility(
+                              context: context, phone: false))
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 16.0, 0.0),
+                              child: GridView(
+                                padding: EdgeInsets.zero,
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 3,
+                                  crossAxisSpacing: 10.0,
+                                  mainAxisSpacing: 10.0,
+                                  childAspectRatio: 1.5,
+                                ),
+                                primary: false,
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                children: [
+                                  cardWeb(),
+                                  cardWeb(),
+                                  cardWeb(),
+                                  cardWeb(),
+                                  cardWeb(),
+                                  cardWeb(),
+                                  cardWeb(),
+                                  cardWeb(),
+                                  // cardWeb2(),
+                                ],
                               ),
-                              primary: false,
+                            ),
+                          // // mobile
+                          if (responsiveVisibility(
+                            context: context,
+                            tablet: false,
+                            tabletLandscape: false,
+                            desktop: false,
+                          ))
+                            ListView(
+                              padding: EdgeInsets.fromLTRB(
+                                0,
+                                0,
+                                0,
+                                44.0,
+                              ),
                               shrinkWrap: true,
+                              physics: AlwaysScrollableScrollPhysics(),
                               scrollDirection: Axis.vertical,
                               children: [
-                                cardWeb(),
-                                cardWeb(),
-                                cardWeb(),
-                                cardWeb(),
-                                cardWeb(),
-                                cardWeb(),
-                                cardWeb(),
-                                cardWeb(),
-                                // cardWeb2(),
-                              ],
+                                cardMobile(),
+                                DividerMobile(),
+                                cardMobile(),
+                                DividerMobile(),
+                                cardMobile(),
+                                DividerMobile(),
+                                cardMobile(),
+                                DividerMobile(),
+                              ].divide(SizedBox(height: 12.0)),
                             ),
-                          ),
-                          // mobile
-                          // if (responsiveVisibility(
-                          //   context: context,
-                          //   tablet: false,
-                          //   tabletLandscape: false,
-                          //   desktop: false,
-                          // ))
-                          //   ListView(
-                          //     padding: EdgeInsets.fromLTRB(
-                          //       0,
-                          //       0,
-                          //       0,
-                          //       44.0,
-                          //     ),
-                          //     shrinkWrap: true,
-                          //     scrollDirection: Axis.vertical,
-                          //     children: [
-                          //       cardMobile(),
-                          //       cardMobile2(),
-                          //       DividerMobile(),
-                          //     ].divide(SizedBox(height: 12.0)),
-                          //   ),
                         ],
                       ),
                     ),
@@ -1006,7 +1047,7 @@ class cardWeb2 extends StatelessWidget {
           hoverColor: Colors.transparent,
           highlightColor: Colors.transparent,
           onTap: () async {
-            context.pushNamed('questionaryTipeSelectImage');
+            context.pushNamed('questionaryTypeWrite');
           },
           child: Column(
             mainAxisSize: MainAxisSize.max,
@@ -1402,7 +1443,7 @@ class cardMobile extends StatelessWidget {
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
-              context.pushNamed('answer_idea2');
+              context.pushNamed('questionaryTypeWrite');
             },
             child: Column(
               mainAxisSize: MainAxisSize.max,

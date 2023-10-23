@@ -1,9 +1,10 @@
-import '../../../components/flutter_flow/flutter_flow_util.dart';
-import 'questionary_type_write_widget.dart' show QuestionaryTypeWriteWidget;
+import '../../../../components/flutter_flow/flutter_flow_util.dart';
+import 'questionary_tipe_select_image_widget.dart'
+    show QuestionaryTipeSelectImageWidget;
 import 'package:flutter/material.dart';
 
-class QuestionaryTypeWriteModel
-    extends FlutterFlowModel<QuestionaryTypeWriteWidget> {
+class QuestionaryTipeSelectImageModel
+    extends FlutterFlowModel<QuestionaryTipeSelectImageWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();

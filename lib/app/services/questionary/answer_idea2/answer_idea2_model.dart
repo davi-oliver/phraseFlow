@@ -1,5 +1,5 @@
-import '../../../components/flutter_flow/flutter_flow_timer.dart';
-import '../../../components/flutter_flow/flutter_flow_util.dart';
+import '../../../../components/flutter_flow/flutter_flow_timer.dart';
+import '../../../../components/flutter_flow/flutter_flow_util.dart';
 import 'answer_idea2_widget.dart' show AnswerIdea2Widget;
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 import 'package:flutter/material.dart';

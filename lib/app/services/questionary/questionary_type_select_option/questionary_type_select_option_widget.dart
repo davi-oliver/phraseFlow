@@ -1,31 +1,31 @@
-import '../../../components/flutter_flow/flutter_flow_icon_button.dart';
-import '../../../components/flutter_flow/flutter_flow_theme.dart';
-import '../../../components/flutter_flow/flutter_flow_util.dart';
-import '../../../components/flutter_flow/flutter_flow_widgets.dart';
+import '../../../../components/flutter_flow/flutter_flow_icon_button.dart';
+import '../../../../components/flutter_flow/flutter_flow_theme.dart';
+import '../../../../components/flutter_flow/flutter_flow_util.dart';
+import '../../../../components/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:percent_indicator/percent_indicator.dart';
-import 'questionary_type_write_model.dart';
-export 'questionary_type_write_model.dart';
+import 'questionary_type_select_option_model.dart';
+export 'questionary_type_select_option_model.dart';
 
-class QuestionaryTypeWriteWidget extends StatefulWidget {
-  const QuestionaryTypeWriteWidget({Key? key}) : super(key: key);
+class QuestionaryTypeSelectOptionWidget extends StatefulWidget {
+  const QuestionaryTypeSelectOptionWidget({Key? key}) : super(key: key);
 
   @override
-  _QuestionaryTypeWriteWidgetState createState() =>
-      _QuestionaryTypeWriteWidgetState();
+  _QuestionaryTypeSelectOptionWidgetState createState() =>
+      _QuestionaryTypeSelectOptionWidgetState();
 }
 
-class _QuestionaryTypeWriteWidgetState
-    extends State<QuestionaryTypeWriteWidget> {
-  late QuestionaryTypeWriteModel _model;
+class _QuestionaryTypeSelectOptionWidgetState
+    extends State<QuestionaryTypeSelectOptionWidget> {
+  late QuestionaryTypeSelectOptionModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => QuestionaryTypeWriteModel());
+    _model = createModel(context, () => QuestionaryTypeSelectOptionModel());
   }
 
   @override
@@ -104,7 +104,7 @@ class _QuestionaryTypeWriteWidgetState
                                   FlutterFlowTheme.of(context).accent4,
                               center: Text(
                                 FFLocalizations.of(context).getText(
-                                  'fe5i3sua' /* 50% */,
+                                  'qo2k4al5' /* 50% */,
                                 ),
                                 textAlign: TextAlign.start,
                                 style: FlutterFlowTheme.of(context)
@@ -137,7 +137,7 @@ class _QuestionaryTypeWriteWidgetState
           children: [
             Text(
               FFLocalizations.of(context).getText(
-                'q6wmv9zd' /* Escreva em $linguagemNativa */,
+                'zgtf2u36' /* Selecione a palavra que falta */,
               ),
               textAlign: TextAlign.center,
               style: FlutterFlowTheme.of(context).bodyMedium.override(
@@ -182,36 +182,17 @@ class _QuestionaryTypeWriteWidgetState
                                     16.0, 8.0, 8.0, 8.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
-                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
                                   children: [
-                                    ClipRRect(
-                                      borderRadius: BorderRadius.circular(8.0),
-                                      child: Image.asset(
-                                        'assets/images/image-removebg-preview_(1).png',
-                                        width: 94.0,
-                                        height: 216.0,
-                                        fit: BoxFit.contain,
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        '9skxwuoc' /* __________________ are boys. */,
                                       ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
                                     ),
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Icon(
-                                          Icons.spatial_audio_off,
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryText,
-                                          size: 24.0,
-                                        ),
-                                        Text(
-                                          FFLocalizations.of(context).getText(
-                                            'evryopfj' /* We Can Work */,
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
-                                        ),
-                                      ].divide(SizedBox(width: 20.0)),
-                                    ),
-                                  ].divide(SizedBox(width: 20.0)),
+                                  ],
                                 ),
                               ),
                             ),
@@ -219,71 +200,67 @@ class _QuestionaryTypeWriteWidgetState
                         ],
                       ),
                     ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
-                            },
-                            text: FFLocalizations.of(context).getText(
-                              'ez1fbh1d' /* opção 1  */,
-                            ),
-                            options: FFButtonOptions(
-                              height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).secondary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .copyWith(
-                                    fontFamily: 'Outfit',
-                                    color: Colors.white,
-                                  ),
-                              elevation: 3.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
+                    Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        FFButtonWidget(
+                          onPressed: () {
+                            print('Button pressed ...');
+                          },
+                          text: FFLocalizations.of(context).getText(
+                            '17gyaylt' /* opção 1  */,
                           ),
-                          FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
-                            },
-                            text: FFLocalizations.of(context).getText(
-                              'ir3zul9n' /* opção 2 */,
+                          options: FFButtonOptions(
+                            height: 40.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Outfit',
+                                  color: Colors.white,
+                                ),
+                            elevation: 3.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
                             ),
-                            options: FFButtonOptions(
-                              height: 40.0,
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  24.0, 0.0, 24.0, 0.0),
-                              iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 0.0),
-                              color: FlutterFlowTheme.of(context).secondary,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .titleSmall
-                                  .copyWith(
-                                    fontFamily: 'Outfit',
-                                    color: Colors.white,
-                                  ),
-                              elevation: 3.0,
-                              borderSide: BorderSide(
-                                color: Colors.transparent,
-                                width: 1.0,
-                              ),
-                              borderRadius: BorderRadius.circular(8.0),
-                            ),
+                            borderRadius: BorderRadius.circular(8.0),
                           ),
-                        ].divide(SizedBox(width: 10.0)),
-                      ),
+                        ),
+                        FFButtonWidget(
+                          onPressed: () {
+                            print('Button pressed ...');
+                          },
+                          text: FFLocalizations.of(context).getText(
+                            'yuau5z0w' /* opção 2 */,
+                          ),
+                          options: FFButtonOptions(
+                            height: 40.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                24.0, 0.0, 24.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: FlutterFlowTheme.of(context).primary,
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Outfit',
+                                  color: Colors.white,
+                                ),
+                            elevation: 3.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
+                              width: 1.0,
+                            ),
+                            borderRadius: BorderRadius.circular(8.0),
+                          ),
+                        ),
+                      ].divide(SizedBox(width: 10.0)),
                     ),
                   ],
                 ),
@@ -319,7 +296,7 @@ class _QuestionaryTypeWriteWidgetState
                 alignment: AlignmentDirectional(0.00, -0.35),
                 child: Text(
                   FFLocalizations.of(context).getText(
-                    'kaegbx3m' /* Verificar */,
+                    'h9du2hk8' /* Verificar */,
                   ),
                   style: FlutterFlowTheme.of(context).headlineMedium.override(
                         fontFamily: 'Lexend Deca',
