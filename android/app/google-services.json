@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "775460929292",
+    "project_id": "phraseflow-13ee8",
+    "storage_bucket": "phraseflow-13ee8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:775460929292:android:9b07f1c59f79f3508e5329",
+        "android_client_info": {
+          "package_name": "com.unifei.br.phraseflow"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAxfpZuFRHOVHk5BLnm5bPF4GtY27psrVM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
