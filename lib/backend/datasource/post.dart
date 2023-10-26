@@ -25,9 +25,6 @@ class PostHttpRequestApp implements IHttpInterfacePostPut {
       final response = await http.post(
         Uri.parse("$urlProd/$url"),
         body: params,
-        headers: {
-          "Content-Type": "application/json",
-        },
       );
       final int code = response.statusCode;
       if (code > 300) {
@@ -91,9 +88,6 @@ class PostHttpRequestApp implements IHttpInterfacePostPut {
       final response = await http.post(
         Uri.parse("$urlProd/$url"),
         body: params,
-        headers: {
-          "Content-Type": "application/json",
-        },
       );
       final int code = response.statusCode;
       if (code > 300) {

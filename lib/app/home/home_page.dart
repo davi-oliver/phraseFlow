@@ -32,7 +32,7 @@ class _AcompanhamenttodasatividadesWidgetState
   final scaffoldKey = GlobalKey<ScaffoldState>();
   Future getQuestoes() async {
     final store = Provider.of<QuestionarioStore>(context, listen: false);
-    List listaQuestoes = [];
+
     final response = await GetHttpRequestApp(context).makeGetJsonRequest(
       url: "questions",
     );
