@@ -1,5 +1,7 @@
 import 'dart:developer';
 
+import 'package:fluid_bottom_nav_bar/fluid_bottom_nav_bar.dart';
+import 'package:phrase_flow/app/success_page/success_page_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../../backend/datasource/get.dart';
@@ -70,6 +72,30 @@ class _AcompanhamenttodasatividadesWidgetState
     super.dispose();
   }
 
+  Widget? _child;
+
+  void _handleNavigationChange(int index) {
+    setState(() {
+      switch (index) {
+        case 0:
+          _child = AcompanhamenttodasatividadesWidget();
+          break;
+        case 1:
+          _child = AcompanhamenttodasatividadesWidget();
+          break;
+        case 2:
+          _child = SuccessPageWidget();
+          break;
+      }
+      _child = AnimatedSwitcher(
+        switchInCurve: Curves.easeOut,
+        switchOutCurve: Curves.easeIn,
+        duration: Duration(milliseconds: 500),
+        child: _child,
+      );
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     if (isiOS) {
@@ -81,13 +107,47 @@ class _AcompanhamenttodasatividadesWidgetState
       );
     }
 
+    List<IconData> iconsList = [
+      Icons.home,
+      Icons.play_lesson,
+      Icons.person_2_rounded,
+    ];
+
     return GestureDetector(
       onTap: () => _model.unfocusNode.canRequestFocus
           ? FocusScope.of(context).requestFocus(_model.unfocusNode)
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: Colors.white,
+        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        floatingActionButtonLocation: !responsiveVisibility(
+                context: context,
+                tablet: false,
+                desktop: false,
+                tabletLandscape: false)
+            ? null
+            : FloatingActionButtonLocation.centerDocked,
+        bottomNavigationBar: !responsiveVisibility(
+                context: context,
+                tablet: false,
+                desktop: false,
+                tabletLandscape: false)
+            ? null
+            : FluidNavBar(
+                icons: [
+                  FluidNavBarIcon(svgPath: "assets/images/home.svg"),
+                  FluidNavBarIcon(svgPath: "assets/images/recentes.svg"),
+                  FluidNavBarIcon(svgPath: "assets/images/person.svg"),
+                ],
+                onChange: _handleNavigationChange,
+                style: FluidNavBarStyle(
+                    barBackgroundColor:
+                        FlutterFlowTheme.of(context).primaryBackground,
+                    iconBackgroundColor: Colors.white,
+                    iconSelectedForegroundColor:
+                        Color.fromARGB(255, 70, 16, 219),
+                    iconUnselectedForegroundColor: Colors.black),
+              ),
         body: SafeArea(
           top: true,
           child: Row(
@@ -138,7 +198,9 @@ class _AcompanhamenttodasatividadesWidgetState
                                               .headlineMedium
                                               .override(
                                                 fontFamily: 'Outfit',
-                                                color: Color(0xFF15161E),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
                                                 fontSize: 24.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -156,7 +218,9 @@ class _AcompanhamenttodasatividadesWidgetState
                                               .labelMedium
                                               .override(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color: Color(0xFF606A85),
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryText,
                                                 fontSize: 14.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -229,6 +293,9 @@ class _AcompanhamenttodasatividadesWidgetState
                     ),
                   ),
                 ),
+              ),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * .3,
               ),
             ],
           ),
@@ -460,13 +527,19 @@ class cardWeb extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(8.0),
-        border: Border.all(
-          color: Color(0xFFE5E7EB),
-          width: 1.0,
-        ),
-      ),
+          color: FlutterFlowTheme.of(context).secondaryBackground,
+          borderRadius: BorderRadius.circular(8.0),
+          border: Border.all(
+            color: Color.fromARGB(57, 105, 102, 102),
+            width: 1.0,
+          ),
+          boxShadow: [
+            BoxShadow(
+              blurRadius: 4.0,
+              color: Color(0x3A000000),
+              offset: Offset(0.0, 2.0),
+            )
+          ]),
       child: Padding(
         padding: EdgeInsetsDirectional.fromSTEB(4.0, 4.0, 10.0, 0.0),
         child: InkWell(
@@ -491,7 +564,7 @@ class cardWeb extends StatelessWidget {
                         text: FFLocalizations.of(context).getText(
                           'xhhqfbaf' /* Idioma:  */,
                         ),
-                        style: TextStyle(),
+                        style: FlutterFlowTheme.of(context).bodyLarge,
                       ),
                       TextSpan(
                         text: FFLocalizations.of(context).getText(
@@ -519,9 +592,7 @@ class cardWeb extends StatelessWidget {
                     'o0u3ak6k' /* Intermediário */,
                   ),
                   textAlign: TextAlign.end,
-                  style: FlutterFlowTheme.of(context).headlineSmall.copyWith(
-                      color: FlutterFlowTheme.of(context).textColor,
-                      fontWeight: FontWeight.bold),
+                  style: FlutterFlowTheme.of(context).headlineSmall,
                 ),
               ),
               Divider(

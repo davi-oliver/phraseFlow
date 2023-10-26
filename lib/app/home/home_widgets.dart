@@ -42,10 +42,10 @@ class HomeWidgets {
             maxWidth: double.infinity,
           ),
           decoration: BoxDecoration(
-            color: Color(0xFFF1F4F8),
+            color: FlutterFlowTheme.of(context).primaryBackground,
             borderRadius: BorderRadius.circular(8.0),
             border: Border.all(
-              color: Color(0xFFE5E7EB),
+              color: Color.fromARGB(255, 32, 32, 32),
               width: 1.0,
             ),
           ),
@@ -61,7 +61,7 @@ class HomeWidgets {
                   ),
                   style: FlutterFlowTheme.of(context).labelMedium.override(
                         fontFamily: 'Plus Jakarta Sans',
-                        color: Color(0xFF606A85),
+                        color: FlutterFlowTheme.of(context).secondaryText,
                         fontSize: 14.0,
                         fontWeight: FontWeight.w500,
                       ),
