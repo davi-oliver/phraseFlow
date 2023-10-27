@@ -1,4 +1,5 @@
-import '../../components/flutter_flow/flutter_flow_theme.dart';
+import 'package:phrase_flow/app/global/theme/theme_mode.dart';
+
 import '../../components/flutter_flow/flutter_flow_util.dart';
 import '../../components/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
@@ -44,15 +45,15 @@ class _Profile04WidgetState extends State<Profile04Widget> {
 
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+      backgroundColor: ThemeModeApp.of(context).primaryBackground,
       appBar: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        backgroundColor: ThemeModeApp.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
         title: Text(
           FFLocalizations.of(context).getText(
             '64x104uh' /* Profile */,
           ),
-          style: FlutterFlowTheme.of(context).displaySmall,
+          style: ThemeModeApp.of(context).displaySmall,
         ),
         actions: [],
         centerTitle: false,
@@ -68,11 +69,11 @@ class _Profile04WidgetState extends State<Profile04Widget> {
               Container(
                 width: MediaQuery.sizeOf(context).width * 1.0,
                 decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
+                  color: ThemeModeApp.of(context).secondaryBackground,
                   boxShadow: [
                     BoxShadow(
                       blurRadius: 1.0,
-                      color: FlutterFlowTheme.of(context).primaryBackground,
+                      color: ThemeModeApp.of(context).primaryBackground,
                       offset: Offset(0.0, 0.0),
                     )
                   ],
@@ -87,7 +88,7 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                         width: 70.0,
                         height: 70.0,
                         decoration: BoxDecoration(
-                          color: FlutterFlowTheme.of(context).alternate,
+                          color: ThemeModeApp.of(context).alternate,
                           borderRadius: BorderRadius.circular(12.0),
                         ),
                         child: Padding(
@@ -115,7 +116,7 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                               FFLocalizations.of(context).getText(
                                 'mxds0wrz' /* Phrase Flow */,
                               ),
-                              style: FlutterFlowTheme.of(context).headlineSmall,
+                              style: ThemeModeApp.of(context).headlineSmall,
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
@@ -124,12 +125,11 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                                 FFLocalizations.of(context).getText(
                                   '3nn28i4l' /* phrflow.io@pflw.com */,
                                 ),
-                                style: FlutterFlowTheme.of(context)
+                                style: ThemeModeApp.of(context)
                                     .bodySmall
-                                    .override(
+                                    .copyWith(
                                       fontFamily: 'Outfit',
-                                      color:
-                                          FlutterFlowTheme.of(context).primary,
+                                      color: ThemeModeApp.of(context).primary,
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.normal,
                                     ),
@@ -161,7 +161,7 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        color: ThemeModeApp.of(context).secondaryBackground,
                       ),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -174,14 +174,14 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                               FFLocalizations.of(context).getText(
                                 '6iqw6zcg' /* Escolha o tema */,
                               ),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: ThemeModeApp.of(context).bodyMedium,
                             ),
                             Container(
                               width: 80.0,
                               height: 40.0,
                               decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
+                                color:
+                                    ThemeModeApp.of(context).primaryBackground,
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
                               child: Stack(
@@ -194,7 +194,7 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                                           0.0, 0.0, 8.0, 0.0),
                                       child: Icon(
                                         Icons.nights_stay,
-                                        color: FlutterFlowTheme.of(context)
+                                        color: ThemeModeApp.of(context)
                                             .secondaryText,
                                         size: 20.0,
                                       ),
@@ -207,7 +207,7 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                                       width: 36.0,
                                       height: 36.0,
                                       decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
+                                        color: ThemeModeApp.of(context)
                                             .secondaryBackground,
                                         boxShadow: [
                                           BoxShadow(
@@ -242,7 +242,7 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                     child: Container(
                       width: MediaQuery.sizeOf(context).width * 1.0,
                       decoration: BoxDecoration(
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        color: ThemeModeApp.of(context).secondaryBackground,
                       ),
                       child: Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -255,14 +255,14 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                               FFLocalizations.of(context).getText(
                                 'dhh2ajtk' /* Switch to Light Mode */,
                               ),
-                              style: FlutterFlowTheme.of(context).bodyMedium,
+                              style: ThemeModeApp.of(context).bodyMedium,
                             ),
                             Container(
                               width: 80.0,
                               height: 40.0,
                               decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context)
-                                    .primaryBackground,
+                                color:
+                                    ThemeModeApp.of(context).primaryBackground,
                                 borderRadius: BorderRadius.circular(20.0),
                               ),
                               child: Stack(
@@ -276,7 +276,7 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                                           8.0, 2.0, 0.0, 0.0),
                                       child: Icon(
                                         Icons.wb_sunny_rounded,
-                                        color: FlutterFlowTheme.of(context)
+                                        color: ThemeModeApp.of(context)
                                             .secondaryText,
                                         size: 24.0,
                                       ),
@@ -288,7 +288,7 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                                       width: 36.0,
                                       height: 36.0,
                                       decoration: BoxDecoration(
-                                        color: FlutterFlowTheme.of(context)
+                                        color: ThemeModeApp.of(context)
                                             .secondaryBackground,
                                         boxShadow: [
                                           BoxShadow(
@@ -327,7 +327,7 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                       FFLocalizations.of(context).getText(
                         'bj1tt02c' /* Configure sua conta */,
                       ),
-                      style: FlutterFlowTheme.of(context).labelMedium,
+                      style: ThemeModeApp.of(context).labelMedium,
                     ),
                   ),
                 ],
@@ -343,7 +343,7 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                   width: double.infinity,
                   height: 60.0,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    color: ThemeModeApp.of(context).secondaryBackground,
                     boxShadow: [
                       BoxShadow(
                         blurRadius: 5.0,
@@ -366,7 +366,7 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                             FFLocalizations.of(context).getText(
                               '83mir7k2' /* Mudar Senha */,
                             ),
-                            style: FlutterFlowTheme.of(context).labelMedium,
+                            style: ThemeModeApp.of(context).labelMedium,
                           ),
                         ),
                         Expanded(
@@ -374,7 +374,7 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                             alignment: AlignmentDirectional(0.90, 0.00),
                             child: Icon(
                               Icons.arrow_forward_ios,
-                              color: FlutterFlowTheme.of(context).secondaryText,
+                              color: ThemeModeApp.of(context).secondaryText,
                               size: 18.0,
                             ),
                           ),
@@ -390,7 +390,7 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                   width: double.infinity,
                   height: 60.0,
                   decoration: BoxDecoration(
-                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                    color: ThemeModeApp.of(context).secondaryBackground,
                     boxShadow: [
                       BoxShadow(
                         blurRadius: 5.0,
@@ -413,7 +413,7 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                             FFLocalizations.of(context).getText(
                               'jcsu989w' /* Editar Perfil */,
                             ),
-                            style: FlutterFlowTheme.of(context).labelMedium,
+                            style: ThemeModeApp.of(context).labelMedium,
                           ),
                         ),
                         Expanded(
@@ -421,7 +421,7 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                             alignment: AlignmentDirectional(0.90, 0.00),
                             child: Icon(
                               Icons.arrow_forward_ios,
-                              color: FlutterFlowTheme.of(context).secondaryText,
+                              color: ThemeModeApp.of(context).secondaryText,
                               size: 18.0,
                             ),
                           ),
@@ -451,12 +451,10 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                         iconPadding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                        color: FlutterFlowTheme.of(context).secondaryBackground,
-                        textStyle: FlutterFlowTheme.of(context)
-                            .bodySmall
-                            .override(
+                        color: ThemeModeApp.of(context).secondaryBackground,
+                        textStyle: ThemeModeApp.of(context).bodySmall.copyWith(
                               fontFamily: 'Lexend Deca',
-                              color: FlutterFlowTheme.of(context).primaryText,
+                              color: ThemeModeApp.of(context).primaryText,
                               fontSize: 14.0,
                               fontWeight: FontWeight.normal,
                             ),

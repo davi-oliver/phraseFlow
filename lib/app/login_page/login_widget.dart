@@ -1,36 +1,33 @@
-import 'package:phrase_flow/app/global/theme/theme_mode.dart';
-
-import '../../../components/flutter_flow/flutter_flow_util.dart';
-import '../../../components/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'createaccount_model.dart';
-export 'createaccount_model.dart';
+import 'package:phrase_flow/app/global/theme/theme_mode.dart';
+import 'package:phrase_flow/components/flutter_flow/flutter_flow_util.dart';
+import 'package:phrase_flow/components/flutter_flow/flutter_flow_widgets.dart';
+import 'login_model.dart';
+export 'login_model.dart';
 
-class CreateaccountWidget extends StatefulWidget {
-  const CreateaccountWidget({Key? key}) : super(key: key);
+class LoginWidget extends StatefulWidget {
+  const LoginWidget({Key? key}) : super(key: key);
 
   @override
-  _CreateaccountWidgetState createState() => _CreateaccountWidgetState();
+  _LoginWidgetState createState() => _LoginWidgetState();
 }
 
-class _CreateaccountWidgetState extends State<CreateaccountWidget> {
-  late CreateaccountModel _model;
+class _LoginWidgetState extends State<LoginWidget> {
+  late LoginModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => CreateaccountModel());
+    _model = createModel(context, () => LoginModel());
 
     _model.emailAddressController ??= TextEditingController();
     _model.emailAddressFocusNode ??= FocusNode();
     _model.passwordController ??= TextEditingController();
     _model.passwordFocusNode ??= FocusNode();
-    _model.passwordConfirmController ??= TextEditingController();
-    _model.passwordConfirmFocusNode ??= FocusNode();
   }
 
   @override
@@ -57,7 +54,7 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: ThemeModeApp.of(context).secondaryBackground,
+        backgroundColor: Colors.white,
         body: SafeArea(
           top: true,
           child: Row(
@@ -69,7 +66,7 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                   width: 100.0,
                   height: double.infinity,
                   decoration: BoxDecoration(
-                    color: ThemeModeApp.of(context).secondaryBackground,
+                    color: Colors.white,
                   ),
                   alignment: AlignmentDirectional(0.00, -1.00),
                   child: SingleChildScrollView(
@@ -81,7 +78,7 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                           width: double.infinity,
                           height: 140.0,
                           decoration: BoxDecoration(
-                            color: ThemeModeApp.of(context).secondaryBackground,
+                            color: Colors.white,
                             borderRadius: BorderRadius.only(
                               bottomLeft: Radius.circular(16.0),
                               bottomRight: Radius.circular(16.0),
@@ -94,8 +91,14 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 24.0, 0.0, 0.0, 0.0),
                             child: Text(
-                              "PhraseFlow.io",
-                              style: ThemeModeApp.of(context).displaySmall,
+                              'PhraseFlow.io',
+                              style: ThemeModeApp.of(context)
+                                  .displaySmall
+                                  .copyWith(
+                                    color: Color(0xFF101213),
+                                    fontSize: 36.0,
+                                    fontWeight: FontWeight.w600,
+                                  ),
                             ),
                           ),
                         ),
@@ -105,7 +108,7 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                             maxWidth: 430.0,
                           ),
                           decoration: BoxDecoration(
-                            color: ThemeModeApp.of(context).secondaryBackground,
+                            color: Colors.white,
                           ),
                           child: Align(
                             alignment: AlignmentDirectional(0.00, 0.00),
@@ -116,81 +119,43 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text(
-                                    "Criar Conta",
-                                    style:
-                                        ThemeModeApp.of(context).headlineLarge,
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Text(
+                                        'Phrase',
+                                        style: ThemeModeApp.of(context)
+                                            .headlineLarge
+                                            .copyWith(
+                                              fontFamily: 'Urbanist',
+                                              color: Color(0xFF101213),
+                                              fontSize: 32.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                      ),
+                                      Text(
+                                        '.Flow',
+                                        style: ThemeModeApp.of(context)
+                                            .headlineLarge
+                                            .copyWith(
+                                              color: Color(0xFF1F09E3),
+                                            ),
+                                      ),
+                                    ],
                                   ),
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 12.0, 0.0, 24.0),
                                     child: Text(
-                                      "Vamos começar preenchendo o formulario",
-                                      style: ThemeModeApp.of(context).bodyLarge,
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 16.0),
-                                    child: Container(
-                                      width: double.infinity,
-                                      child: TextFormField(
-                                        controller: _model.nameController,
-                                        focusNode:
-                                            _model.nameControllerFocusNode,
-                                        autofocus: true,
-                                        autofillHints: [AutofillHints.email],
-                                        obscureText: false,
-                                        decoration: InputDecoration(
-                                          labelText: "Nome",
-                                          labelStyle: ThemeModeApp.of(context)
-                                              .labelLarge,
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: ThemeModeApp.of(context)
-                                                  .primaryBackground,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
+                                      'Vamos começar pelo formulário abaixo',
+                                      style: ThemeModeApp.of(context)
+                                          .labelMedium
+                                          .copyWith(
+                                            fontFamily: 'Plus Jakarta Sans',
+                                            color: Color(0xFF57636C),
+                                            fontSize: 14.0,
+                                            fontWeight: FontWeight.w500,
                                           ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: ThemeModeApp.of(context)
-                                                  .primary,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                          ),
-                                          errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: ThemeModeApp.of(context)
-                                                  .error,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                          ),
-                                          focusedErrorBorder:
-                                              OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: ThemeModeApp.of(context)
-                                                  .error,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                          ),
-                                          filled: true,
-                                          fillColor: ThemeModeApp.of(context)
-                                              .primaryBackground,
-                                        ),
-                                        style:
-                                            ThemeModeApp.of(context).bodyLarge,
-                                        keyboardType:
-                                            TextInputType.emailAddress,
-                                      ),
                                     ),
                                   ),
                                   Padding(
@@ -206,13 +171,18 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                         autofillHints: [AutofillHints.email],
                                         obscureText: false,
                                         decoration: InputDecoration(
-                                          labelText: "Email",
+                                          labelText: 'Email',
                                           labelStyle: ThemeModeApp.of(context)
-                                              .labelLarge,
+                                              .labelLarge
+                                              .copyWith(
+                                                fontFamily: 'Plus Jakarta Sans',
+                                                color: Color(0xFF57636C),
+                                                fontSize: 16.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
-                                              color: ThemeModeApp.of(context)
-                                                  .primaryBackground,
+                                              color: Color(0xFFF1F4F8),
                                               width: 2.0,
                                             ),
                                             borderRadius:
@@ -220,8 +190,7 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                           ),
                                           focusedBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
-                                              color: ThemeModeApp.of(context)
-                                                  .primary,
+                                              color: Color(0xFF4B39EF),
                                               width: 2.0,
                                             ),
                                             borderRadius:
@@ -229,8 +198,7 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                           ),
                                           errorBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
-                                              color: ThemeModeApp.of(context)
-                                                  .error,
+                                              color: Color(0xFFFF5963),
                                               width: 2.0,
                                             ),
                                             borderRadius:
@@ -239,19 +207,23 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                           focusedErrorBorder:
                                               OutlineInputBorder(
                                             borderSide: BorderSide(
-                                              color: ThemeModeApp.of(context)
-                                                  .error,
+                                              color: Color(0xFFFF5963),
                                               width: 2.0,
                                             ),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           filled: true,
-                                          fillColor: ThemeModeApp.of(context)
-                                              .primaryBackground,
+                                          fillColor: Color(0xFFF1F4F8),
                                         ),
-                                        style:
-                                            ThemeModeApp.of(context).bodyLarge,
+                                        style: ThemeModeApp.of(context)
+                                            .bodyLarge
+                                            .copyWith(
+                                              fontFamily: 'Plus Jakarta Sans',
+                                              color: Color(0xFF101213),
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
                                         keyboardType:
                                             TextInputType.emailAddress,
                                         validator: _model
@@ -272,13 +244,18 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                         autofillHints: [AutofillHints.password],
                                         obscureText: !_model.passwordVisibility,
                                         decoration: InputDecoration(
-                                          labelText: "Senha",
+                                          labelText: 'Senha',
                                           labelStyle: ThemeModeApp.of(context)
-                                              .labelLarge,
+                                              .labelLarge
+                                              .copyWith(
+                                                fontFamily: 'Plus Jakarta Sans',
+                                                color: Color(0xFF57636C),
+                                                fontSize: 16.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
                                           enabledBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
-                                              color: ThemeModeApp.of(context)
-                                                  .primaryBackground,
+                                              color: Color(0xFFF1F4F8),
                                               width: 2.0,
                                             ),
                                             borderRadius:
@@ -286,8 +263,7 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                           ),
                                           focusedBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
-                                              color: ThemeModeApp.of(context)
-                                                  .primary,
+                                              color: Color(0xFF4B39EF),
                                               width: 2.0,
                                             ),
                                             borderRadius:
@@ -295,8 +271,7 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                           ),
                                           errorBorder: OutlineInputBorder(
                                             borderSide: BorderSide(
-                                              color: ThemeModeApp.of(context)
-                                                  .error,
+                                              color: Color(0xFFFF5963),
                                               width: 2.0,
                                             ),
                                             borderRadius:
@@ -305,16 +280,14 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                           focusedErrorBorder:
                                               OutlineInputBorder(
                                             borderSide: BorderSide(
-                                              color: ThemeModeApp.of(context)
-                                                  .error,
+                                              color: Color(0xFFFF5963),
                                               width: 2.0,
                                             ),
                                             borderRadius:
                                                 BorderRadius.circular(12.0),
                                           ),
                                           filled: true,
-                                          fillColor: ThemeModeApp.of(context)
-                                              .primaryBackground,
+                                          fillColor: Color(0xFFF1F4F8),
                                           suffixIcon: InkWell(
                                             onTap: () => setState(
                                               () => _model.passwordVisibility =
@@ -327,14 +300,19 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                                   ? Icons.visibility_outlined
                                                   : Icons
                                                       .visibility_off_outlined,
-                                              color: ThemeModeApp.of(context)
-                                                  .secondaryText,
+                                              color: Color(0xFF57636C),
                                               size: 24.0,
                                             ),
                                           ),
                                         ),
-                                        style:
-                                            ThemeModeApp.of(context).bodyLarge,
+                                        style: ThemeModeApp.of(context)
+                                            .bodyLarge
+                                            .copyWith(
+                                              fontFamily: 'Plus Jakarta Sans',
+                                              color: Color(0xFF101213),
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.w500,
+                                            ),
                                         validator: _model
                                             .passwordControllerValidator
                                             .asValidator(context),
@@ -344,138 +322,12 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                   Padding(
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 0.0, 16.0),
-                                    child: Container(
-                                      width: double.infinity,
-                                      child: TextFormField(
-                                        controller:
-                                            _model.passwordConfirmController,
-                                        focusNode:
-                                            _model.passwordConfirmFocusNode,
-                                        autofocus: true,
-                                        autofillHints: [AutofillHints.password],
-                                        obscureText:
-                                            !_model.passwordConfirmVisibility,
-                                        decoration: InputDecoration(
-                                          labelText: "Confirmar Senha",
-                                          labelStyle: ThemeModeApp.of(context)
-                                              .labelLarge,
-                                          enabledBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: ThemeModeApp.of(context)
-                                                  .primaryBackground,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                          ),
-                                          focusedBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: ThemeModeApp.of(context)
-                                                  .primary,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                          ),
-                                          errorBorder: OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: ThemeModeApp.of(context)
-                                                  .error,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                          ),
-                                          focusedErrorBorder:
-                                              OutlineInputBorder(
-                                            borderSide: BorderSide(
-                                              color: ThemeModeApp.of(context)
-                                                  .error,
-                                              width: 2.0,
-                                            ),
-                                            borderRadius:
-                                                BorderRadius.circular(12.0),
-                                          ),
-                                          filled: true,
-                                          fillColor: ThemeModeApp.of(context)
-                                              .primaryBackground,
-                                          suffixIcon: InkWell(
-                                            onTap: () => setState(
-                                              () => _model
-                                                      .passwordConfirmVisibility =
-                                                  !_model
-                                                      .passwordConfirmVisibility,
-                                            ),
-                                            focusNode:
-                                                FocusNode(skipTraversal: true),
-                                            child: Icon(
-                                              _model.passwordConfirmVisibility
-                                                  ? Icons.visibility_outlined
-                                                  : Icons
-                                                      .visibility_off_outlined,
-                                              color: ThemeModeApp.of(context)
-                                                  .secondaryText,
-                                              size: 24.0,
-                                            ),
-                                          ),
-                                        ),
-                                        style:
-                                            ThemeModeApp.of(context).bodyLarge,
-                                        minLines: 1,
-                                        validator: _model
-                                            .passwordConfirmControllerValidator
-                                            .asValidator(context),
-                                      ),
-                                    ),
-                                  ),
-                                  Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 16.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
-                                        Result validate =
-                                            await _model.validateSubmit();
-                                        if (validate.isValid) {
-                                          Result result =
-                                              await _model.createUser(context);
-                                          if (!result.isValid) {
-                                            return ScaffoldMessenger.of(context)
-                                                .showSnackBar(
-                                              SnackBar(
-                                                backgroundColor:
-                                                    ThemeModeApp.of(context)
-                                                        .primaryBackground,
-                                                content: Text(
-                                                    "${result.message}",
-                                                    style:
-                                                        ThemeModeApp.of(context)
-                                                            .bodyLarge
-                                                            .copyWith(
-                                                              fontFamily:
-                                                                  'Outfit',
-                                                            )),
-                                              ),
-                                            );
-                                          } else {
-                                            context.pushNamed(
-                                                'acompanhamenttodasatividades');
-                                          }
-                                        }
-
-                                        ScaffoldMessenger.of(context)
-                                            .showSnackBar(
-                                          SnackBar(
-                                            backgroundColor:
-                                                ThemeModeApp.of(context)
-                                                    .primaryBackground,
-                                            content: Text("${validate.message}",
-                                                style: ThemeModeApp.of(context)
-                                                    .bodyLarge
-                                                    .copyWith()),
-                                          ),
-                                        );
+                                        context.pushNamed(
+                                            'acompanhamenttodasatividades');
                                       },
-                                      text: "Criar Conta",
+                                      text: 'Criar conta',
                                       options: FFButtonOptions(
                                         width: double.infinity,
                                         height: 44.0,
@@ -484,12 +336,13 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                         iconPadding:
                                             EdgeInsetsDirectional.fromSTEB(
                                                 0.0, 0.0, 0.0, 0.0),
-                                        color: ThemeModeApp.of(context).primary,
+                                        color: Color(0xFF4B39EF),
                                         textStyle: ThemeModeApp.of(context)
-                                            .titleMedium
+                                            .titleSmall
                                             .copyWith(
-                                              color: ThemeModeApp.of(context)
-                                                  .primaryBtnText,
+                                              color: Colors.white,
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.w500,
                                             ),
                                         elevation: 3.0,
                                         borderSide: BorderSide(
@@ -514,7 +367,7 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                         hoverColor: Colors.transparent,
                                         highlightColor: Colors.transparent,
                                         onTap: () async {
-                                          context.pushNamed('LoginPage');
+                                          context.pushNamed('forgotPassword');
                                         },
                                         child: RichText(
                                           textScaleFactor:
@@ -523,24 +376,32 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                           text: TextSpan(
                                             children: [
                                               TextSpan(
-                                                text: "Já possui conta?",
+                                                text: 'Esqueceu sua conta?',
                                                 style: TextStyle(),
                                               ),
                                               TextSpan(
-                                                text: "Entre aqui",
+                                                text: 'Recupere já',
                                                 style: ThemeModeApp.of(context)
                                                     .bodyMedium
                                                     .copyWith(
-                                                      color: ThemeModeApp.of(
-                                                              context)
-                                                          .primary,
+                                                      fontFamily:
+                                                          'Plus Jakarta Sans',
+                                                      color: Color(0xFF4B39EF),
+                                                      fontSize: 14.0,
                                                       fontWeight:
                                                           FontWeight.w600,
                                                     ),
                                               )
                                             ],
                                             style: ThemeModeApp.of(context)
-                                                .bodyMedium,
+                                                .bodyMedium
+                                                .copyWith(
+                                                  fontFamily:
+                                                      'Plus Jakarta Sans',
+                                                  color: Color(0xFF101213),
+                                                  fontSize: 14.0,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
                                           ),
                                         ),
                                       ),
@@ -571,10 +432,7 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                       height: double.infinity,
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
-                          colors: [
-                            ThemeModeApp.of(context).info,
-                            ThemeModeApp.of(context).primary
-                          ],
+                          colors: [Color(0xFF4B39EF), Color(0xFF39D2C0)],
                           stops: [0.0, 1.0],
                           begin: AlignmentDirectional(1.0, -1.0),
                           end: AlignmentDirectional(-1.0, 1.0),
@@ -594,8 +452,7 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                 maxWidth: 400.0,
                               ),
                               decoration: BoxDecoration(
-                                color: ThemeModeApp.of(context)
-                                    .secondaryBackground,
+                                color: Colors.white,
                                 boxShadow: [
                                   BoxShadow(
                                     blurRadius: 3.0,
@@ -605,8 +462,7 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                 ],
                                 borderRadius: BorderRadius.circular(8.0),
                                 border: Border.all(
-                                  color: ThemeModeApp.of(context)
-                                      .primaryBackground,
+                                  color: Color(0xFFF1F4F8),
                                   width: 2.0,
                                 ),
                               ),
@@ -640,23 +496,37 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                                     color: Color(0xFFEEEEEE),
                                                     shape: BoxShape.circle,
                                                   ),
-                                                  child: ClipRRect(
-                                                    borderRadius:
-                                                        BorderRadius.circular(
-                                                            8.0),
-                                                    child: Image.asset(
-                                                      'assets/images/WhatsApp_Image_2023-08-31_at_21.37.07-removebg-preview.png',
-                                                      width: 300.0,
-                                                      height: 200.0,
-                                                      fit: BoxFit.cover,
-                                                    ),
+                                                  child: Column(
+                                                    mainAxisSize:
+                                                        MainAxisSize.max,
+                                                    children: [
+                                                      ClipRRect(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(8.0),
+                                                        child: Image.network(
+                                                          'https://i.redd.it/r309qbxachv71.jpg',
+                                                          width: 300.0,
+                                                          height: 40.0,
+                                                          fit: BoxFit.fitHeight,
+                                                        ),
+                                                      ),
+                                                    ],
                                                   ),
                                                 ),
                                               ),
                                               Text(
-                                                "Phrase Flow",
+                                                'UserName',
                                                 style: ThemeModeApp.of(context)
-                                                    .titleMedium,
+                                                    .titleMedium
+                                                    .copyWith(
+                                                      fontFamily:
+                                                          'Plus Jakarta Sans',
+                                                      color: Colors.white,
+                                                      fontSize: 18.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                             ],
                                           ),
@@ -666,9 +536,17 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                                 CrossAxisAlignment.end,
                                             children: [
                                               Text(
-                                                "Avaliação",
+                                                'Avaliação',
                                                 style: ThemeModeApp.of(context)
-                                                    .bodySmall,
+                                                    .bodySmall
+                                                    .copyWith(
+                                                      fontFamily:
+                                                          'Plus Jakarta Sans',
+                                                      color: Color(0xFF101213),
+                                                      fontSize: 12.0,
+                                                      fontWeight:
+                                                          FontWeight.w500,
+                                                    ),
                                               ),
                                               Row(
                                                 mainAxisSize: MainAxisSize.max,
@@ -679,17 +557,24 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                                             .fromSTEB(0.0, 0.0,
                                                                 4.0, 0.0),
                                                     child: Text(
-                                                      "5",
+                                                      '5',
                                                       style: ThemeModeApp.of(
                                                               context)
-                                                          .headlineMedium,
+                                                          .headlineMedium
+                                                          .copyWith(
+                                                            fontFamily:
+                                                                'Plus Jakarta Sans',
+                                                            color: Color(
+                                                                0xFF101213),
+                                                            fontSize: 24.0,
+                                                            fontWeight:
+                                                                FontWeight.w500,
+                                                          ),
                                                     ),
                                                   ),
                                                   Icon(
                                                     Icons.star_rounded,
-                                                    color:
-                                                        ThemeModeApp.of(context)
-                                                            .primary,
+                                                    color: Color(0xFF4B39EF),
                                                     size: 20.0,
                                                   ),
                                                 ],
@@ -707,9 +592,16 @@ class _CreateaccountWidgetState extends State<CreateaccountWidget> {
                                         children: [
                                           Expanded(
                                             child: AutoSizeText(
-                                              "Este aplicativo de idiomas tem sido uma adição incrível à minha vida. Ele oferece uma ampla gama de recursos que têm me ajudado a alcançar meus objetivos de maneira eficaz.",
+                                              'Este aplicativo de saúde e bem-estar tem sido uma adição incrível à minha vida. Ele oferece uma ampla gama de recursos que têm me ajudado a alcançar meus objetivos de maneira eficaz e a manter um estilo de vida saudável.',
                                               style: ThemeModeApp.of(context)
-                                                  .bodyMedium,
+                                                  .bodyMedium
+                                                  .copyWith(
+                                                    fontFamily:
+                                                        'Plus Jakarta Sans',
+                                                    color: Color(0xFF101213),
+                                                    fontSize: 14.0,
+                                                    fontWeight: FontWeight.w500,
+                                                  ),
                                             ),
                                           ),
                                         ],

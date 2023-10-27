@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:phrase_flow/app/global/theme/theme_mode.dart';
 import 'package:phrase_flow/components/flutter_flow/flutter_flow_choice_chips.dart';
-import 'package:phrase_flow/components/flutter_flow/flutter_flow_theme.dart';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:phrase_flow/components/flutter_flow/flutter_flow_widgets.dart';
 
@@ -42,7 +43,7 @@ class HomeWidgets {
             maxWidth: double.infinity,
           ),
           decoration: BoxDecoration(
-            color: FlutterFlowTheme.of(context).primaryBackground,
+            color: ThemeModeApp.of(context).primaryBackground,
             borderRadius: BorderRadius.circular(8.0),
             border: Border.all(
               color: Color.fromARGB(255, 32, 32, 32),
@@ -56,31 +57,23 @@ class HomeWidgets {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  FFLocalizations.of(context).getText(
-                    'ulpc575p' /* Filtro */,
-                  ),
-                  style: FlutterFlowTheme.of(context).labelMedium.override(
-                        fontFamily: 'Plus Jakarta Sans',
-                        color: FlutterFlowTheme.of(context).secondaryText,
+                  "Filtrar por",
+                  style: ThemeModeApp.of(context).labelMedium.copyWith(
+                        color: ThemeModeApp.of(context).secondaryText,
                         fontSize: 14.0,
                         fontWeight: FontWeight.w500,
                       ),
                 ),
                 FlutterFlowChoiceChips(
                   options: [
-                    ChipData(FFLocalizations.of(context).getText(
-                      '4ad1agn0' /* Ativo */,
-                    )),
-                    ChipData(FFLocalizations.of(context).getText(
-                      'vte5v4i0' /* Em progresso */,
-                    ))
+                    ChipData("Ativo"),
+                    ChipData("Em Andamento"),
                   ],
                   onChanged: (val) =>
                       setState(() => _model.choiceChipsValue = val?.first),
                   selectedChipStyle: ChipStyle(
                     backgroundColor: Color(0x4C39D2C0),
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Plus Jakarta Sans',
+                    textStyle: ThemeModeApp.of(context).bodyMedium.copyWith(
                           color: Color(0xFF15161E),
                           fontSize: 14.0,
                           fontWeight: FontWeight.w500,
@@ -94,8 +87,7 @@ class HomeWidgets {
                   ),
                   unselectedChipStyle: ChipStyle(
                     backgroundColor: Color(0xFFF1F4F8),
-                    textStyle: FlutterFlowTheme.of(context).bodyMedium.override(
-                          fontFamily: 'Plus Jakarta Sans',
+                    textStyle: ThemeModeApp.of(context).bodyMedium.copyWith(
                           color: Color(0xFF606A85),
                           fontSize: 14.0,
                           fontWeight: FontWeight.w500,
@@ -114,11 +106,7 @@ class HomeWidgets {
                   alignment: WrapAlignment.start,
                   controller: _model.choiceChipsValueController ??=
                       FormFieldController<List<String>>(
-                    [
-                      FFLocalizations.of(context).getText(
-                        'njxytw6r' /* Ativo */,
-                      )
-                    ],
+                    ["Ativo"],
                   ),
                   wrapped: true,
                 ),
@@ -217,16 +205,13 @@ class HomeWidgets {
         onPressed: () {
           print('Button pressed ...');
         },
-        text: FFLocalizations.of(context).getText(
-          'zdj4b3gf' /* Adicionar  */,
-        ),
+        text: "Adicionar",
         options: FFButtonOptions(
           height: 40.0,
           padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
           iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
           color: Color(0xFF6F61EF),
-          textStyle: FlutterFlowTheme.of(context).titleSmall.override(
-                fontFamily: 'Plus Jakarta Sans',
+          textStyle: ThemeModeApp.of(context).titleSmall.copyWith(
                 color: Colors.white,
                 fontSize: 16.0,
                 fontWeight: FontWeight.w500,
@@ -278,16 +263,12 @@ class HomeWidgets {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 0.0, 0.0),
                     child: Text(
-                      FFLocalizations.of(context).getText(
-                        'gd5lzz13' /* PhaseFlow */,
-                      ),
-                      style:
-                          FlutterFlowTheme.of(context).headlineMedium.override(
-                                fontFamily: 'Outfit',
-                                color: Color(0xFF15161E),
-                                fontSize: 24.0,
-                                fontWeight: FontWeight.w500,
-                              ),
+                      "PhraseFlow",
+                      style: ThemeModeApp.of(context).headlineMedium.copyWith(
+                            color: Color(0xFF15161E),
+                            fontSize: 24.0,
+                            fontWeight: FontWeight.w500,
+                          ),
                     ),
                   ),
                 ],
@@ -308,16 +289,12 @@ class HomeWidgets {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 0.0, 0.0),
                       child: Text(
-                        FFLocalizations.of(context).getText(
-                          'frypqq9p' /* Ferramentas  */,
-                        ),
-                        style:
-                            FlutterFlowTheme.of(context).labelMedium.override(
-                                  fontFamily: 'Plus Jakarta Sans',
-                                  color: Color(0xFF606A85),
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                        "Ferramentas",
+                        style: ThemeModeApp.of(context).bodyMedium.copyWith(
+                              color: ThemeModeApp.of(context).primaryText,
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.w500,
+                            ),
                       ),
                     ),
                     Padding(
@@ -341,20 +318,17 @@ class HomeWidgets {
                             children: [
                               Icon(
                                 Icons.space_dashboard,
-                                color: Color(0xFFFF6D0A),
+                                color: ThemeModeApp.of(context).accent1,
                                 size: 24.0,
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     12.0, 0.0, 0.0, 0.0),
                                 child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'kvpv3iy4' /* Dashboard */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
+                                  "Dashboard",
+                                  style: ThemeModeApp.of(context)
                                       .bodyMedium
-                                      .override(
-                                        fontFamily: 'Plus Jakarta Sans',
+                                      .copyWith(
                                         color: Color(0xFF15161E),
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.w500,
@@ -387,145 +361,21 @@ class HomeWidgets {
                             children: [
                               Icon(
                                 Icons.forum_rounded,
-                                color: Color(0xFFFF6D0A),
+                                color: ThemeModeApp.of(context).accent1,
                                 size: 24.0,
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     12.0, 0.0, 0.0, 0.0),
                                 child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'ao1omrei' /* Chats */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
+                                  "Chats",
+                                  style: ThemeModeApp.of(context)
                                       .bodyMedium
-                                      .override(
-                                        fontFamily: 'Plus Jakarta Sans',
+                                      .copyWith(
                                         color: Color(0xFF15161E),
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.w500,
                                       ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                      child: AnimatedContainer(
-                        duration: Duration(milliseconds: 200),
-                        curve: Curves.easeInOut,
-                        width: double.infinity,
-                        height: 44.0,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFF1F4F8),
-                          borderRadius: BorderRadius.circular(12.0),
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 0.0, 6.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Icon(
-                                Icons.work,
-                                color: Color(0xFFFF6D0A),
-                                size: 24.0,
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    '3mqmdbhb' /* Projects */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Plus Jakarta Sans',
-                                        color: Color(0xFF15161E),
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.w500,
-                                      ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
-                      child: AnimatedContainer(
-                        duration: Duration(milliseconds: 200),
-                        curve: Curves.easeInOut,
-                        width: double.infinity,
-                        height: 44.0,
-                        decoration: BoxDecoration(
-                          color: Color(0x4D9489F5),
-                          borderRadius: BorderRadius.circular(12.0),
-                          shape: BoxShape.rectangle,
-                        ),
-                        child: Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              8.0, 0.0, 6.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Icon(
-                                Icons.receipt_rounded,
-                                color: Color(0xFF6F61EF),
-                                size: 24.0,
-                              ),
-                              Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      12.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'dxapex6d' /* Recent Orders */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Plus Jakarta Sans',
-                                          color: Color(0xFF15161E),
-                                          fontSize: 14.0,
-                                          fontWeight: FontWeight.w500,
-                                        ),
-                                  ),
-                                ),
-                              ),
-                              Container(
-                                height: 32.0,
-                                decoration: BoxDecoration(
-                                  color: Color(0xFF6F61EF),
-                                  borderRadius: BorderRadius.circular(8.0),
-                                ),
-                                child: Align(
-                                  alignment: AlignmentDirectional(0.00, 0.00),
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        8.0, 4.0, 8.0, 4.0),
-                                    child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'kfjf7952' /* 12 */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Plus Jakarta Sans',
-                                            color: Colors.white,
-                                            fontSize: 14.0,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                    ),
-                                  ),
                                 ),
                               ),
                             ],
@@ -537,16 +387,12 @@ class HomeWidgets {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 0.0, 0.0),
                       child: Text(
-                        FFLocalizations.of(context).getText(
-                          'bnsbpoi8' /* Configurações */,
-                        ),
-                        style:
-                            FlutterFlowTheme.of(context).labelMedium.override(
-                                  fontFamily: 'Plus Jakarta Sans',
-                                  color: Color(0xFF606A85),
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                        "Configurações",
+                        style: ThemeModeApp.of(context).labelMedium.copyWith(
+                              color: ThemeModeApp.of(context).primaryText,
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.w500,
+                            ),
                       ),
                     ),
                     Padding(
@@ -570,20 +416,17 @@ class HomeWidgets {
                             children: [
                               Icon(
                                 Icons.attach_money_rounded,
-                                color: Color(0xFFFF6D0A),
+                                color: ThemeModeApp.of(context).accent1,
                                 size: 24.0,
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     12.0, 0.0, 0.0, 0.0),
                                 child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'b34yohri' /* Meus Planos */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
+                                  "Plano Atual",
+                                  style: ThemeModeApp.of(context)
                                       .bodyMedium
-                                      .override(
-                                        fontFamily: 'Plus Jakarta Sans',
+                                      .copyWith(
                                         color: Color(0xFF15161E),
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.w500,
@@ -615,21 +458,18 @@ class HomeWidgets {
                             mainAxisSize: MainAxisSize.max,
                             children: [
                               Icon(
-                                Icons.wifi_tethering_rounded,
-                                color: Color(0xFFFF6D0A),
+                                Icons.settings_outlined,
+                                color: ThemeModeApp.of(context).accent1,
                                 size: 24.0,
                               ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     12.0, 0.0, 0.0, 0.0),
                                 child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'h17xoc6w' /* Explorar */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
+                                  "Configurações e Privacidade",
+                                  style: ThemeModeApp.of(context)
                                       .bodyMedium
-                                      .override(
-                                        fontFamily: 'Plus Jakarta Sans',
+                                      .copyWith(
                                         color: Color(0xFF15161E),
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.w500,
@@ -692,29 +532,21 @@ class HomeWidgets {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            FFLocalizations.of(context).getText(
-                              'rg2bctf2' /* Andrew D. */,
-                            ),
-                            style:
-                                FlutterFlowTheme.of(context).bodyLarge.override(
-                                      fontFamily: 'Plus Jakarta Sans',
-                                      color: Color(0xFF15161E),
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w600,
-                                    ),
+                            "Andrew D.",
+                            style: ThemeModeApp.of(context).bodyLarge.copyWith(
+                                  color: Color(0xFF15161E),
+                                  fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                ),
                           ),
                           Text(
-                            FFLocalizations.of(context).getText(
-                              '8fme7tx9' /* admin@gmail.com */,
-                            ),
-                            style: FlutterFlowTheme.of(context)
-                                .labelMedium
-                                .override(
-                                  fontFamily: 'Plus Jakarta Sans',
-                                  color: Color(0xFF606A85),
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                            "admin@gnai.com",
+                            style:
+                                ThemeModeApp.of(context).labelMedium.copyWith(
+                                      color: Color(0xFF606A85),
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.w500,
+                                    ),
                           ),
                         ],
                       ),

@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:phrase_flow/app/global/store/global_store.dart';
+import 'package:phrase_flow/app/global/theme/theme_mode.dart';
 import 'package:phrase_flow/app/services/questionary/store/store.dart';
 import 'package:provider/provider.dart';
-import 'backend/firebase/firebase_config.dart';
-import 'components/flutter_flow/flutter_flow_theme.dart';
 import 'components/flutter_flow/flutter_flow_util.dart';
 import 'components/flutter_flow/internationalization.dart';
 import 'components/flutter_flow/nav/nav.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  usePathUrlStrategy();
-  await initFirebase();
+  // usePathUrlStrategy();
+  // await initFirebase();
 
-  await FlutterFlowTheme.initialize();
+  await Future.wait([
+    ThemeModeApp.initialize(),
+  ]);
 
   runApp(MultiProvider(
     providers: [
@@ -38,7 +38,7 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   Locale? _locale;
-  ThemeMode _themeMode = FlutterFlowTheme.themeMode;
+  ThemeMode _themeMode = ThemeModeApp.themeMode;
 
   late AppStateNotifier _appStateNotifier;
   late GoRouter _router;
@@ -62,7 +62,7 @@ class _MyAppState extends State<MyApp> {
 
   void setThemeMode(ThemeMode mode) => setState(() {
         _themeMode = mode;
-        FlutterFlowTheme.saveThemeMode(mode);
+        ThemeModeApp.saveThemeMode(mode);
       });
 
   @override

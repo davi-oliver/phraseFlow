@@ -1,12 +1,13 @@
 import 'dart:developer';
 
 import 'package:fluid_bottom_nav_bar/fluid_bottom_nav_bar.dart';
+import 'package:phrase_flow/app/global/theme/theme_mode.dart';
 import 'package:phrase_flow/app/success_page/success_page_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../../backend/datasource/get.dart';
 import '../../backend/datasource/results.dart';
-import '../../components/flutter_flow/flutter_flow_theme.dart';
+
 import '../../components/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -119,7 +120,7 @@ class _AcompanhamenttodasatividadesWidgetState
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+        backgroundColor: ThemeModeApp.of(context).secondaryBackground,
         floatingActionButtonLocation: !responsiveVisibility(
                 context: context,
                 tablet: false,
@@ -129,7 +130,7 @@ class _AcompanhamenttodasatividadesWidgetState
             : FloatingActionButtonLocation.centerDocked,
         bottomNavigationBar: !responsiveVisibility(
                 context: context,
-                tablet: false,
+                phone: false,
                 desktop: false,
                 tabletLandscape: false)
             ? null
@@ -141,12 +142,9 @@ class _AcompanhamenttodasatividadesWidgetState
                 ],
                 onChange: _handleNavigationChange,
                 style: FluidNavBarStyle(
-                    barBackgroundColor:
-                        FlutterFlowTheme.of(context).primaryBackground,
-                    iconBackgroundColor: Colors.white,
-                    iconSelectedForegroundColor:
-                        Color.fromARGB(255, 70, 16, 219),
-                    iconUnselectedForegroundColor: Colors.black),
+                    barBackgroundColor: ThemeModeApp.of(context).primary,
+                    iconSelectedForegroundColor: Colors.white,
+                    iconUnselectedForegroundColor: Colors.white),
               ),
         body: SafeArea(
           top: true,
@@ -194,13 +192,12 @@ class _AcompanhamenttodasatividadesWidgetState
                                           FFLocalizations.of(context).getText(
                                             'ly0yzpc1' /* Idiomas */,
                                           ),
-                                          style: FlutterFlowTheme.of(context)
+                                          style: ThemeModeApp.of(context)
                                               .headlineMedium
-                                              .override(
+                                              .copyWith(
                                                 fontFamily: 'Outfit',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
+                                                color: ThemeModeApp.of(context)
+                                                    .primaryText,
                                                 fontSize: 24.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -214,13 +211,12 @@ class _AcompanhamenttodasatividadesWidgetState
                                             '52ih3rrb' /* Seus cursos  */,
                                           ),
                                           textAlign: TextAlign.start,
-                                          style: FlutterFlowTheme.of(context)
+                                          style: ThemeModeApp.of(context)
                                               .labelMedium
-                                              .override(
+                                              .copyWith(
                                                 fontFamily: 'Plus Jakarta Sans',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
+                                                color: ThemeModeApp.of(context)
+                                                    .secondaryText,
                                                 fontSize: 14.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
@@ -385,7 +381,7 @@ class cardWeb2 extends StatelessWidget {
                         ),
                       )
                     ],
-                    style: FlutterFlowTheme.of(context).bodyLarge.override(
+                    style: ThemeModeApp.of(context).bodyLarge.copyWith(
                           fontFamily: 'Plus Jakarta Sans',
                           color: Color(0xFF15161E),
                           fontSize: 16.0,
@@ -401,7 +397,7 @@ class cardWeb2 extends StatelessWidget {
                     'ux1urqjk' /* Avançado */,
                   ),
                   textAlign: TextAlign.end,
-                  style: FlutterFlowTheme.of(context).headlineSmall.override(
+                  style: ThemeModeApp.of(context).headlineSmall.copyWith(
                         fontFamily: 'Outfit',
                         color: Color(0xFF15161E),
                         fontSize: 22.0,
@@ -495,9 +491,7 @@ class cardWeb2 extends StatelessWidget {
                             FFLocalizations.of(context).getText(
                               'kfd2tttb' /* Ativo */,
                             ),
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
+                            style: ThemeModeApp.of(context).bodyMedium.copyWith(
                                   fontFamily: 'Plus Jakarta Sans',
                                   color: Color(0xFF15161E),
                                   fontSize: 14.0,
@@ -527,7 +521,7 @@ class cardWeb extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).secondaryBackground,
+          color: ThemeModeApp.of(context).secondaryBackground,
           borderRadius: BorderRadius.circular(8.0),
           border: Border.all(
             color: Color.fromARGB(57, 105, 102, 102),
@@ -561,22 +555,18 @@ class cardWeb extends StatelessWidget {
                   text: TextSpan(
                     children: [
                       TextSpan(
-                        text: FFLocalizations.of(context).getText(
-                          'xhhqfbaf' /* Idioma:  */,
-                        ),
-                        style: FlutterFlowTheme.of(context).bodyLarge,
+                        text: "Idioma:",
+                        style: ThemeModeApp.of(context).bodyLarge,
                       ),
                       TextSpan(
-                        text: FFLocalizations.of(context).getText(
-                          'c7x8p6zs' /* Francês */,
-                        ),
+                        text: " Frances",
                         style: TextStyle(
                           color: Color(0xFF6F61EF),
                           fontWeight: FontWeight.bold,
                         ),
                       )
                     ],
-                    style: FlutterFlowTheme.of(context).bodyLarge.override(
+                    style: ThemeModeApp.of(context).bodyLarge.copyWith(
                           fontFamily: 'Plus Jakarta Sans',
                           color: Color(0xFF15161E),
                           fontSize: 14.0,
@@ -588,11 +578,9 @@ class cardWeb extends StatelessWidget {
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(12.0, 0.0, 12.0, 0.0),
                 child: Text(
-                  FFLocalizations.of(context).getText(
-                    'o0u3ak6k' /* Intermediário */,
-                  ),
+                  "Avançado",
                   textAlign: TextAlign.end,
-                  style: FlutterFlowTheme.of(context).headlineSmall,
+                  style: ThemeModeApp.of(context).headlineSmall,
                 ),
               ),
               Divider(
@@ -785,7 +773,7 @@ class cardMobile extends StatelessWidget {
                           ),
                         )
                       ],
-                      style: FlutterFlowTheme.of(context).bodyLarge.override(
+                      style: ThemeModeApp.of(context).bodyLarge.copyWith(
                             fontFamily: 'Plus Jakarta Sans',
                             color: Color(0xFF15161E),
                             fontSize: 16.0,
@@ -801,7 +789,7 @@ class cardMobile extends StatelessWidget {
                       'pf8r7jlz' /* Intermediário */,
                     ),
                     textAlign: TextAlign.end,
-                    style: FlutterFlowTheme.of(context).headlineSmall.override(
+                    style: ThemeModeApp.of(context).headlineSmall.copyWith(
                           fontFamily: 'Outfit',
                           color: Color(0xFF15161E),
                           fontSize: 22.0,
@@ -835,13 +823,12 @@ class cardMobile extends StatelessWidget {
                               ),
                             )
                           ],
-                          style:
-                              FlutterFlowTheme.of(context).bodyLarge.override(
-                                    fontFamily: 'Plus Jakarta Sans',
-                                    color: Color(0xFF15161E),
-                                    fontSize: 16.0,
-                                    fontWeight: FontWeight.w600,
-                                  ),
+                          style: ThemeModeApp.of(context).bodyLarge.copyWith(
+                                fontFamily: 'Plus Jakarta Sans',
+                                color: Color(0xFF15161E),
+                                fontSize: 16.0,
+                                fontWeight: FontWeight.w600,
+                              ),
                         ),
                       ),
                     ),
@@ -909,14 +896,13 @@ class cardMobile extends StatelessWidget {
                               FFLocalizations.of(context).getText(
                                 '1c84nlu9' /* Continuar */,
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Plus Jakarta Sans',
-                                    color: Color(0xFF6F61EF),
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.w500,
-                                  ),
+                              style:
+                                  ThemeModeApp.of(context).bodyMedium.copyWith(
+                                        fontFamily: 'Plus Jakarta Sans',
+                                        color: Color(0xFF6F61EF),
+                                        fontSize: 14.0,
+                                        fontWeight: FontWeight.w500,
+                                      ),
                             ),
                           ),
                         ),

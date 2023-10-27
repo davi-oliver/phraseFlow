@@ -7,7 +7,7 @@ export 'app/services/questionary/answer_idea2/answer_idea2_widget.dart'
 export 'app/services/timelineatividade/timelineatividade_widget.dart'
     show TimelineatividadeWidget;
 export 'app/intro_app/intro_app_widget.dart' show IntroAppWidget;
-export 'app/login_page/login_page_widget.dart' show LoginPageWidget;
+export 'app/login_page/login_widget.dart' show LoginWidget;
 export 'app/services/questionary/questionary_type_select_option/questionary_type_select_option_widget.dart'
     show QuestionaryTypeSelectOptionWidget;
 export 'app/login_page/createaccount/createaccount_widget.dart'

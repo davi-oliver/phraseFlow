@@ -1,11 +1,13 @@
-import '../../components/flutter_flow/flutter_flow_animations.dart';
-import '../../components/flutter_flow/flutter_flow_theme.dart';
-import '../../components/flutter_flow/flutter_flow_util.dart';
-import '../../components/flutter_flow/flutter_flow_widgets.dart';
+import 'package:phrase_flow/app/global/theme/theme_mode.dart';
+import 'package:phrase_flow/app/intro_app/intro_app_model.dart';
+import 'package:phrase_flow/components/flutter_flow/flutter_flow_widgets.dart';
+import 'package:smooth_page_indicator/smooth_page_indicator.dart'
+    as smooth_page_indicator;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_animate/flutter_animate.dart';
-import 'intro_app_model.dart';
+
+import '../../components/flutter_flow/flutter_flow_util.dart';
+
 export 'intro_app_model.dart';
 
 class IntroAppWidget extends StatefulWidget {
@@ -15,114 +17,10 @@ class IntroAppWidget extends StatefulWidget {
   _IntroAppWidgetState createState() => _IntroAppWidgetState();
 }
 
-class _IntroAppWidgetState extends State<IntroAppWidget>
-    with TickerProviderStateMixin {
+class _IntroAppWidgetState extends State<IntroAppWidget> {
   late IntroAppModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  final animationsMap = {
-    'containerOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 1.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 400.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        ScaleEffect(
-          curve: Curves.easeInOut,
-          delay: 0.ms,
-          duration: 400.ms,
-          begin: Offset(3.0, 3.0),
-          end: Offset(1.0, 1.0),
-        ),
-      ],
-    ),
-    'containerOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 300.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 300.ms,
-          duration: 300.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        ScaleEffect(
-          curve: Curves.bounceOut,
-          delay: 300.ms,
-          duration: 300.ms,
-          begin: Offset(0.6, 0.6),
-          end: Offset(1.0, 1.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation1': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 350.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 350.ms,
-          duration: 400.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 350.ms,
-          duration: 400.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'textOnPageLoadAnimation2': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 400.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 400.ms,
-          duration: 400.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        MoveEffect(
-          curve: Curves.easeInOut,
-          delay: 400.ms,
-          duration: 400.ms,
-          begin: Offset(0.0, 30.0),
-          end: Offset(0.0, 0.0),
-        ),
-      ],
-    ),
-    'rowOnPageLoadAnimation': AnimationInfo(
-      trigger: AnimationTrigger.onPageLoad,
-      effects: [
-        VisibilityEffect(duration: 300.ms),
-        FadeEffect(
-          curve: Curves.easeInOut,
-          delay: 50.ms,
-          duration: 600.ms,
-          begin: 0.0,
-          end: 1.0,
-        ),
-        ScaleEffect(
-          curve: Curves.bounceOut,
-          delay: 50.ms,
-          duration: 600.ms,
-          begin: Offset(0.6, 0.6),
-          end: Offset(1.0, 1.0),
-        ),
-      ],
-    ),
-  };
 
   @override
   void initState() {
@@ -148,193 +46,319 @@ class _IntroAppWidgetState extends State<IntroAppWidget>
       );
     }
 
-    return GestureDetector(
-      onTap: () => _model.unfocusNode.canRequestFocus
-          ? FocusScope.of(context).requestFocus(_model.unfocusNode)
-          : FocusScope.of(context).unfocus(),
-      child: Scaffold(
-        key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBtnText,
-        body: Column(
+    return Scaffold(
+      key: scaffoldKey,
+      backgroundColor: ThemeModeApp.of(context).secondaryBackground,
+      body: SingleChildScrollView(
+        child: Column(
           mainAxisSize: MainAxisSize.max,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Expanded(
-              child: Container(
-                width: double.infinity,
-                height: 500.0,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                ),
-                child: Container(
-                  width: 100.0,
-                  height: 100.0,
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                      colors: [Color(0x00FFFFFF), Colors.white],
-                      stops: [0.0, 1.0],
-                      begin: AlignmentDirectional(0.0, -1.0),
-                      end: AlignmentDirectional(0, 1.0),
-                    ),
-                  ),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Container(
-                        decoration: BoxDecoration(
-                          color: Color(0xCCFFFFFF),
-                          shape: BoxShape.circle,
-                        ),
-                      ).animateOnPageLoad(
-                          animationsMap['containerOnPageLoadAnimation2']!),
-                      Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 44.0, 0.0, 0.0),
-                        child: Text(
-                          FFLocalizations.of(context).getText(
-                            'xxs3hgxf' /* Bem Vindo(a) */,
-                          ),
-                          style: FlutterFlowTheme.of(context)
-                              .displaySmall
-                              .override(
-                                fontFamily: 'Plus Jakarta Sans',
-                                color: Color(0xFF101213),
-                                fontSize: 36.0,
-                                fontWeight: FontWeight.w600,
-                              ),
-                        ).animateOnPageLoad(
-                            animationsMap['textOnPageLoadAnimation1']!),
-                      ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            44.0, 8.0, 44.0, 0.0),
-                        child: Text(
-                          FFLocalizations.of(context).getText(
-                            '89d2vbqa' /* Essa é um aplicativo voltado a... */,
-                          ),
-                          textAlign: TextAlign.center,
-                          style:
-                              FlutterFlowTheme.of(context).labelMedium.override(
-                                    fontFamily: 'Plus Jakarta Sans',
-                                    color: Color(0xFF57636C),
-                                    fontSize: 14.0,
-                                    fontWeight: FontWeight.w500,
-                                  ),
-                        ).animateOnPageLoad(
-                            animationsMap['textOnPageLoadAnimation2']!),
-                      ),
-                    ],
-                  ),
-                ),
-              ).animateOnPageLoad(
-                  animationsMap['containerOnPageLoadAnimation1']!),
-            ),
             Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(16.0, 24.0, 16.0, 44.0),
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 0.0),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Expanded(
-                    child: Align(
-                      alignment: AlignmentDirectional(0.00, 0.00),
-                      child: Padding(
-                        padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 8.0, 16.0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            context.pushNamed(
-                              'LoginPage',
-                              extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType:
-                                      PageTransitionType.rightToLeft,
-                                ),
-                              },
-                            );
-                          },
-                          text: FFLocalizations.of(context).getText(
-                            'uzcvkub8' /* Começar */,
-                          ),
-                          options: FFButtonOptions(
-                            width: 230.0,
-                            height: 52.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: Colors.white,
-                            textStyle:
-                                FlutterFlowTheme.of(context).bodyLarge.override(
-                                      fontFamily: 'Plus Jakarta Sans',
-                                      color: Color(0xFF101213),
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.w500,
+                  if (Theme.of(context).brightness == Brightness.dark)
+                    Image.asset(
+                      'assets/images/app_launcher_icon.png',
+                      width: 200.0,
+                      height: 100.0,
+                      fit: BoxFit.fitHeight,
+                    ),
+                  if (!(Theme.of(context).brightness == Brightness.dark))
+                    Image.asset(
+                      'assets/images/app_launcher_icon.png',
+                      width: 200.0,
+                      height: 100.0,
+                      fit: BoxFit.fitHeight,
+                    ),
+                ],
+              ),
+            ),
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Expanded(
+                  child: Container(
+                    width: double.infinity,
+                    height: MediaQuery.sizeOf(context).height * 0.6,
+                    child: Stack(
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 0.0, 20.0),
+                          child: PageView(
+                            controller: _model.pageViewController ??=
+                                PageController(initialPage: 0),
+                            scrollDirection: Axis.horizontal,
+                            children: [
+                              Container(
+                                width: 100.0,
+                                height: 100.0,
+                                decoration: BoxDecoration(),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 20.0),
+                                          child: Image.asset(
+                                            'assets/images/onboarding_1@2x.png',
+                                            width: 320.0,
+                                            height: 300.0,
+                                            fit: BoxFit.fitWidth,
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                            elevation: 0.0,
-                            borderSide: BorderSide(
-                              color: Color(0xFFE0E3E7),
-                              width: 2.0,
-                            ),
-                            borderRadius: BorderRadius.circular(12.0),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          20.0, 0.0, 20.0, 8.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Expanded(
+                                            child: Text(
+                                              'PhraseFlow.io idiomas',
+                                              textAlign: TextAlign.center,
+                                              style: ThemeModeApp.of(context)
+                                                  .displaySmall,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          20.0, 0.0, 20.0, 8.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Expanded(
+                                            child: Text(
+                                              'Começe já sua trilha\n',
+                                              textAlign: TextAlign.center,
+                                              style: ThemeModeApp.of(context)
+                                                  .titleMedium,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                width: 100.0,
+                                height: 100.0,
+                                decoration: BoxDecoration(),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 0.0, 0.0, 20.0),
+                                          child: Image.asset(
+                                            'assets/images/onboarding_2@2x.png',
+                                            width: 300.0,
+                                            height: 270.0,
+                                            fit: BoxFit.fitHeight,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          20.0, 0.0, 20.0, 8.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Expanded(
+                                            child: Text(
+                                              'Aprenda idiomas',
+                                              textAlign: TextAlign.center,
+                                              style: ThemeModeApp.of(context)
+                                                  .displaySmall,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          20.0, 0.0, 20.0, 8.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Expanded(
+                                            child: Text(
+                                              'Faça lições do seus idiomas favoritos e aprenda com facilidade.',
+                                              textAlign: TextAlign.center,
+                                              style: ThemeModeApp.of(context)
+                                                  .titleMedium,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                width: 100.0,
+                                height: 100.0,
+                                decoration: BoxDecoration(),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.center,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 30.0, 0.0, 30.0),
+                                          child: Image.asset(
+                                            'assets/images/onboarding_3@2x.png',
+                                            width: 300.0,
+                                            height: 250.0,
+                                            fit: BoxFit.fitWidth,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          20.0, 0.0, 20.0, 8.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Expanded(
+                                            child: Text(
+                                              'Encontre sintomas e fatores comuns',
+                                              textAlign: TextAlign.center,
+                                              style: ThemeModeApp.of(context)
+                                                  .displaySmall,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          20.0, 0.0, 20.0, 8.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Expanded(
+                                            child: Text(
+                                              'Encontre sintomas e fatores comuns entre seus pacientes e tenha um diagnóstico mais preciso.',
+                                              textAlign: TextAlign.center,
+                                              style: ThemeModeApp.of(context)
+                                                  .titleMedium,
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
                           ),
                         ),
-                      ),
+                        Align(
+                          alignment: AlignmentDirectional(0.00, 1.00),
+                          child: Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 10.0),
+                            child: smooth_page_indicator.SmoothPageIndicator(
+                              controller: _model.pageViewController ??=
+                                  PageController(initialPage: 0),
+                              count: 3,
+                              axisDirection: Axis.horizontal,
+                              onDotClicked: (i) async {
+                                await _model.pageViewController!.animateToPage(
+                                  i,
+                                  duration: Duration(milliseconds: 500),
+                                  curve: Curves.ease,
+                                );
+                              },
+                              effect: smooth_page_indicator.ExpandingDotsEffect(
+                                expansionFactor: 2.0,
+                                spacing: 8.0,
+                                radius: 16.0,
+                                dotWidth: 16.0,
+                                dotHeight: 4.0,
+                                dotColor: Color(0x8AC6CAD4),
+                                activeDotColor:
+                                    ThemeModeApp.of(context).primaryText,
+                                paintStyle: PaintingStyle.fill,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
                     ),
                   ),
-                  Expanded(
-                    child: Align(
-                      alignment: AlignmentDirectional(0.00, 0.00),
-                      child: Padding(
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 16.0, 0.0, 0.0),
+                    child: FFButtonWidget(
+                      onPressed: () async {
+                        context.pushNamed('createaccount');
+                      },
+                      text: 'Continue',
+                      options: FFButtonOptions(
+                        width: 200.0,
+                        height: 50.0,
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(8.0, 0.0, 0.0, 16.0),
-                        child: FFButtonWidget(
-                          onPressed: () async {
-                            context.pushNamed(
-                              'createaccount',
-                              extra: <String, dynamic>{
-                                kTransitionInfoKey: TransitionInfo(
-                                  hasTransition: true,
-                                  transitionType:
-                                      PageTransitionType.leftToRight,
-                                  duration: Duration(milliseconds: 100),
-                                ),
-                              },
-                            );
-                          },
-                          text: FFLocalizations.of(context).getText(
-                            'myfm4z2l' /* Criar Conta */,
-                          ),
-                          options: FFButtonOptions(
-                            width: 230.0,
-                            height: 52.0,
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 0.0),
-                            color: Color(0xFFFF6D0A),
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .copyWith(
-                                  fontFamily: 'Plus Jakarta Sans',
-                                  color: FlutterFlowTheme.of(context).primary,
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.w500,
-                                ),
-                            elevation: 3.0,
-                            borderSide: BorderSide(
-                              color: Colors.transparent,
-                              width: 1.0,
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        iconPadding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                        color: ThemeModeApp.of(context).primaryBackground,
+                        textStyle: ThemeModeApp.of(context).titleSmall.copyWith(
+                              fontFamily: 'Outfit',
+                              color: ThemeModeApp.of(context).primaryText,
                             ),
-                            borderRadius: BorderRadius.circular(12.0),
-                          ),
+                        elevation: 2.0,
+                        borderSide: BorderSide(
+                          color: Colors.transparent,
+                          width: 1.0,
                         ),
+                        borderRadius: BorderRadius.circular(40.0),
                       ),
                     ),
                   ),
                 ],
-              ).animateOnPageLoad(animationsMap['rowOnPageLoadAnimation']!),
+              ),
             ),
           ],
         ),

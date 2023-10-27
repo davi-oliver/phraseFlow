@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:phrase_flow/app/services/questionary/questionary_home/questionary_page.dart';
 import 'package:provider/provider.dart';
 
 import '/index.dart';
@@ -84,14 +83,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => TimelineatividadeWidget(),
             ),
             FFRoute(
-              name: 'introApp',
-              path: 'introApp',
+              name: 'IntroAppWidget',
+              path: 'IntroAppWidget',
               builder: (context, params) => IntroAppWidget(),
             ),
             FFRoute(
-              name: 'LoginPage',
+              name: 'loginPage',
               path: 'loginPage',
-              builder: (context, params) => LoginPageWidget(),
+              builder: (context, params) => LoginWidget(),
             ),
             FFRoute(
               name: 'questionaryTypeSelectOption',

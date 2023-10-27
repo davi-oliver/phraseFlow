@@ -1,5 +1,7 @@
+import 'package:phrase_flow/app/global/theme/theme_mode.dart';
+
 import '../../../../components/flutter_flow/flutter_flow_icon_button.dart';
-import '../../../../components/flutter_flow/flutter_flow_theme.dart';
+
 import '../../../../components/flutter_flow/flutter_flow_timer.dart';
 import '../../../../components/flutter_flow/flutter_flow_util.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
@@ -53,11 +55,11 @@ class _AnswerIdea2WidgetState extends State<AnswerIdea2Widget> {
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: ThemeModeApp.of(context).primaryBackground,
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(120.0),
           child: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            backgroundColor: ThemeModeApp.of(context).primaryBackground,
             automaticallyImplyLeading: false,
             actions: [],
             flexibleSpace: FlexibleSpaceBar(
@@ -86,7 +88,7 @@ class _AnswerIdea2WidgetState extends State<AnswerIdea2Widget> {
                               buttonSize: 50.0,
                               icon: Icon(
                                 Icons.close,
-                                color: FlutterFlowTheme.of(context).error,
+                                color: ThemeModeApp.of(context).error,
                                 size: 30.0,
                               ),
                               onPressed: () async {
@@ -101,18 +103,17 @@ class _AnswerIdea2WidgetState extends State<AnswerIdea2Widget> {
                               animation: true,
                               animateFromLastPercent: true,
                               progressColor: Color(0xFF1F09E3),
-                              backgroundColor:
-                                  FlutterFlowTheme.of(context).accent4,
+                              backgroundColor: ThemeModeApp.of(context).accent4,
                               center: Text(
                                 FFLocalizations.of(context).getText(
                                   '4q7r2bg7' /* 50% */,
                                 ),
                                 textAlign: TextAlign.start,
-                                style: FlutterFlowTheme.of(context)
+                                style: ThemeModeApp.of(context)
                                     .headlineSmall
-                                    .override(
+                                    .copyWith(
                                       fontFamily: 'Outfit',
-                                      color: FlutterFlowTheme.of(context)
+                                      color: ThemeModeApp.of(context)
                                           .primaryBtnText,
                                     ),
                               ),
@@ -179,18 +180,16 @@ class _AnswerIdea2WidgetState extends State<AnswerIdea2Widget> {
                               if (shouldUpdate) setState(() {});
                             },
                             textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context).headlineSmall,
+                            style: ThemeModeApp.of(context).headlineSmall,
                           ),
                           Text(
                             FFLocalizations.of(context).getText(
                               'tg9zwic4' /* Hello, What your name ?  */,
                             ),
                             textAlign: TextAlign.center,
-                            style: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
+                            style: ThemeModeApp.of(context).bodyMedium.copyWith(
                                   fontFamily: 'Outfit',
-                                  color: FlutterFlowTheme.of(context).primary,
+                                  color: ThemeModeApp.of(context).primary,
                                   fontSize: 20.0,
                                   fontWeight: FontWeight.bold,
                                 ),
@@ -234,7 +233,7 @@ class _AnswerIdea2WidgetState extends State<AnswerIdea2Widget> {
                   FFLocalizations.of(context).getText(
                     'y7go9td4' /* Verificar */,
                   ),
-                  style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  style: ThemeModeApp.of(context).headlineMedium.copyWith(
                         fontFamily: 'Lexend Deca',
                         color: Colors.black,
                         fontWeight: FontWeight.bold,

@@ -1,97 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_mobx/flutter_mobx.dart';
-import 'package:percent_indicator/linear_percent_indicator.dart';
-import 'package:phrase_flow/app/services/questionary/questionary_home/questionary_home_model.dart';
+import 'package:phrase_flow/app/global/theme/theme_mode.dart';
 import 'package:phrase_flow/app/services/questionary/store/store.dart';
-import 'package:phrase_flow/components/flutter_flow/flutter_flow_icon_button.dart';
-import 'package:phrase_flow/components/flutter_flow/flutter_flow_theme.dart';
+
 import 'package:phrase_flow/components/flutter_flow/flutter_flow_util.dart';
+import 'package:provider/provider.dart';
 
 class QuestionaryWidgets {
   BuildContext context;
   QuestionaryWidgets(this.context);
-
-  PreferredSize progressbarLesson() {
-    return PreferredSize(
-      preferredSize: Size.fromHeight(120.0),
-      child: AppBar(
-        backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
-        automaticallyImplyLeading: false,
-        actions: [],
-        flexibleSpace: FlexibleSpaceBar(
-          title: Column(
-            mainAxisSize: MainAxisSize.max,
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Observer(builder: (_) {
-                return Align(
-                  alignment: AlignmentDirectional(0.00, -1.00),
-                  child: Padding(
-                    padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 8.0),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              12.0, 0.0, 0.0, 0.0),
-                          child: FlutterFlowIconButton(
-                            borderColor: Colors.transparent,
-                            borderRadius: 30.0,
-                            borderWidth: 1.0,
-                            buttonSize: 50.0,
-                            icon: Icon(
-                              Icons.close,
-                              color: FlutterFlowTheme.of(context).error,
-                              size: 30.0,
-                            ),
-                            onPressed: () async {
-                              context.pop();
-                            },
-                          ),
-                        ),
-                        Expanded(
-                          child: LinearPercentIndicator(
-                            percent: 0.9,
-                            lineHeight: 26.0,
-                            animation: true,
-                            animateFromLastPercent: true,
-                            progressColor: Color(0xFF1F09E3),
-                            backgroundColor:
-                                FlutterFlowTheme.of(context).accent4,
-                            center: Text(
-                              FFLocalizations.of(context).getText(
-                                'fe5i3sua' /* 50% */,
-                              ),
-                              textAlign: TextAlign.start,
-                              style: FlutterFlowTheme.of(context)
-                                  .headlineSmall
-                                  .override(
-                                    fontFamily: 'Outfit',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryBtnText,
-                                  ),
-                            ),
-                            barRadius: Radius.circular(50.0),
-                            padding: EdgeInsets.zero,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              })
-            ],
-          ),
-          centerTitle: true,
-          expandedTitleScale: 1.0,
-        ),
-        elevation: 0.0,
-      ),
-    );
-  }
 }
 
 class CardInputOrSpeetch extends StatelessWidget {
@@ -117,25 +33,25 @@ class CardInputOrSpeetch extends StatelessWidget {
               keyboardType: TextInputType.multiline,
               decoration: InputDecoration(
                 labelText: 'Resposta',
-                labelStyle: FlutterFlowTheme.of(context).headlineLarge.override(
+                labelStyle: ThemeModeApp.of(context).headlineSmall.copyWith(
                       fontFamily: 'Outfit',
-                      color: FlutterFlowTheme.of(context).primaryBtnText,
+                      color: ThemeModeApp.of(context).primaryBtnText,
                     ),
                 hintText: 'Digite sua resposta',
-                hintStyle: FlutterFlowTheme.of(context).headlineSmall.override(
+                hintStyle: ThemeModeApp.of(context).headlineSmall.copyWith(
                       fontFamily: 'Outfit',
-                      color: FlutterFlowTheme.of(context).primaryBtnText,
+                      color: ThemeModeApp.of(context).primaryBtnText,
                     ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: FlutterFlowTheme.of(context).primaryBtnText,
+                    color: ThemeModeApp.of(context).primaryBtnText,
                     width: 2.0,
                   ),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: FlutterFlowTheme.of(context).primaryBtnText,
+                    color: ThemeModeApp.of(context).primaryBtnText,
                     width: 2.0,
                   ),
                   borderRadius: BorderRadius.circular(8.0),
@@ -143,9 +59,9 @@ class CardInputOrSpeetch extends StatelessWidget {
                 contentPadding:
                     EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
               ),
-              style: FlutterFlowTheme.of(context).headlineSmall.override(
+              style: ThemeModeApp.of(context).headlineSmall.copyWith(
                     fontFamily: 'Outfit',
-                    color: FlutterFlowTheme.of(context).primaryBtnText,
+                    color: ThemeModeApp.of(context).primaryBtnText,
                   ),
               onChanged: (value) {
                 print('Value changed: $value');
@@ -184,7 +100,7 @@ class cardTextTranslate extends StatelessWidget {
               width: double.infinity,
               height: 100.0,
               decoration: BoxDecoration(
-                color: FlutterFlowTheme.of(context).primaryBackground,
+                color: ThemeModeApp.of(context).primaryBackground,
                 boxShadow: [
                   BoxShadow(
                     blurRadius: 4.0,
@@ -219,13 +135,13 @@ class cardTextTranslate extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.spatial_audio_off,
-                            color: FlutterFlowTheme.of(context).tertiary,
+                            color: ThemeModeApp.of(context).tertiary,
                             size: 50.0,
                           ),
                           Flexible(
                             child: Text(
                               "${questionarioStore.questions[this.index].question}",
-                              style: FlutterFlowTheme.of(context).headlineSmall,
+                              style: ThemeModeApp.of(context).headlineSmall,
                             ),
                           ),
                         ].divide(SizedBox(width: 20.0)),
@@ -276,13 +192,14 @@ class _questoesPageWidgetsState extends State<questoesPageWidgets> {
   }
 }
 
+// ignore: must_be_immutable
 class BotaoVerificar extends StatefulWidget {
-  const BotaoVerificar({
-    required this.model,
+  BotaoVerificar({
+    required this.index,
     super.key,
   });
 
-  final QuestionaryTypeWriteModel model;
+  int? index;
 
   @override
   State<BotaoVerificar> createState() => _BotaoVerificarState();
@@ -291,6 +208,9 @@ class BotaoVerificar extends StatefulWidget {
 class _BotaoVerificarState extends State<BotaoVerificar> {
   @override
   Widget build(BuildContext context) {
+    final questionarioStore = Provider.of<QuestionarioStore>(
+      context,
+    );
     return Container(
       width: MediaQuery.of(context).size.width,
       height: MediaQuery.of(context).size.height * 0.1,
@@ -301,10 +221,8 @@ class _BotaoVerificarState extends State<BotaoVerificar> {
         highlightColor: Colors.transparent,
         onTap: () async {
           setState(() {
-            widget.model.pageController.nextPage(
-              duration: Duration(milliseconds: 300),
-              curve: Curves.ease,
-            );
+            questionarioStore.animateControllerPageView();
+            questionarioStore.setSelectedIndex(widget.index! + 1);
           });
         },
         child: Container(
@@ -331,7 +249,7 @@ class _BotaoVerificarState extends State<BotaoVerificar> {
             FFLocalizations.of(context).getText(
               'kaegbx3m' /* Verificar */,
             ),
-            style: FlutterFlowTheme.of(context).headlineMedium.override(
+            style: ThemeModeApp.of(context).headlineMedium.copyWith(
                   fontFamily: 'Lexend Deca',
                   color: Colors.black,
                   fontWeight: FontWeight.bold,

@@ -1,4 +1,5 @@
-import '../../components/flutter_flow/flutter_flow_theme.dart';
+import 'package:phrase_flow/app/global/theme/theme_mode.dart';
+
 import '../../components/flutter_flow/flutter_flow_util.dart';
 import '../../components/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
@@ -73,9 +74,9 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
                 FFLocalizations.of(context).getText(
                   'ou93doad' /* Congrats! */,
                 ),
-                style: FlutterFlowTheme.of(context).headlineMedium.override(
+                style: ThemeModeApp.of(context).headlineMedium.copyWith(
                       fontFamily: 'Outfit',
-                      color: FlutterFlowTheme.of(context).primaryBtnText,
+                      color: ThemeModeApp.of(context).primaryBtnText,
                       fontSize: 32.0,
                     ),
               ),
@@ -85,9 +86,9 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
                   FFLocalizations.of(context).getText(
                     'ng3eoe47' /* Thanks for taking the quiz. */,
                   ),
-                  style: FlutterFlowTheme.of(context).titleSmall.override(
+                  style: ThemeModeApp.of(context).titleSmall.copyWith(
                         fontFamily: 'Outfit',
-                        color: FlutterFlowTheme.of(context).primaryBtnText,
+                        color: ThemeModeApp.of(context).primaryBtnText,
                         fontSize: 20.0,
                         fontWeight: FontWeight.w300,
                       ),
@@ -107,10 +108,10 @@ class _SuccessPageWidgetState extends State<SuccessPageWidget> {
                     padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
                     iconPadding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
-                    color: FlutterFlowTheme.of(context).secondary,
-                    textStyle: FlutterFlowTheme.of(context).titleSmall.override(
+                    color: ThemeModeApp.of(context).secondary,
+                    textStyle: ThemeModeApp.of(context).titleSmall.copyWith(
                           fontFamily: 'Outfit',
-                          color: FlutterFlowTheme.of(context).primaryBtnText,
+                          color: ThemeModeApp.of(context).primaryBtnText,
                         ),
                     elevation: 3.0,
                     borderSide: BorderSide(

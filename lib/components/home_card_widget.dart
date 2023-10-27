@@ -1,4 +1,5 @@
-import 'flutter_flow/flutter_flow_theme.dart';
+import 'package:phrase_flow/app/global/theme/theme_mode.dart';
+
 import 'flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
@@ -41,7 +42,7 @@ class _HomeCardWidgetState extends State<HomeCardWidget> {
       child: Container(
         width: MediaQuery.sizeOf(context).width * 1.0,
         decoration: BoxDecoration(
-          color: FlutterFlowTheme.of(context).secondaryBackground,
+          color: ThemeModeApp.of(context).secondaryBackground,
           boxShadow: [
             BoxShadow(
               blurRadius: 8.0,
@@ -51,7 +52,7 @@ class _HomeCardWidgetState extends State<HomeCardWidget> {
           ],
           borderRadius: BorderRadius.circular(12.0),
           border: Border.all(
-            color: FlutterFlowTheme.of(context).lineColor,
+            color: ThemeModeApp.of(context).lineColor,
           ),
         ),
         child: Column(
@@ -90,11 +91,9 @@ class _HomeCardWidgetState extends State<HomeCardWidget> {
                         FFLocalizations.of(context).getText(
                           'uue3y8kd' /* Home Name */,
                         ),
-                        style: FlutterFlowTheme.of(context)
-                            .titleMedium
-                            .override(
+                        style: ThemeModeApp.of(context).titleMedium.copyWith(
                               fontFamily: 'Outfit',
-                              color: FlutterFlowTheme.of(context).primaryText,
+                              color: ThemeModeApp.of(context).primaryText,
                             ),
                       ),
                       Padding(
@@ -107,12 +106,12 @@ class _HomeCardWidgetState extends State<HomeCardWidget> {
                             RatingBarIndicator(
                               itemBuilder: (context, index) => Icon(
                                 Icons.radio_button_checked,
-                                color: FlutterFlowTheme.of(context).primaryText,
+                                color: ThemeModeApp.of(context).primaryText,
                               ),
                               direction: Axis.horizontal,
                               rating: 4.0,
                               unratedColor:
-                                  FlutterFlowTheme.of(context).secondaryText,
+                                  ThemeModeApp.of(context).secondaryText,
                               itemCount: 5,
                               itemSize: 16.0,
                             ),
@@ -125,7 +124,7 @@ class _HomeCardWidgetState extends State<HomeCardWidget> {
                     width: 75.0,
                     height: 32.0,
                     decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).primaryText,
+                      color: ThemeModeApp.of(context).primaryText,
                       borderRadius: BorderRadius.circular(12.0),
                     ),
                     alignment: AlignmentDirectional(0.00, 0.00),
@@ -136,10 +135,10 @@ class _HomeCardWidgetState extends State<HomeCardWidget> {
                         FFLocalizations.of(context).getText(
                           'izhe70ao' /* Price */,
                         ),
-                        style: FlutterFlowTheme.of(context).bodyMedium.override(
+                        style: ThemeModeApp.of(context).bodyMedium.copyWith(
                               fontFamily: 'Outfit',
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
+                              color:
+                                  ThemeModeApp.of(context).secondaryBackground,
                             ),
                       ),
                     ),

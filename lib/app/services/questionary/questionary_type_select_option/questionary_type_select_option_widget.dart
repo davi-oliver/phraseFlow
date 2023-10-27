@@ -1,5 +1,7 @@
+import 'package:phrase_flow/app/global/theme/theme_mode.dart';
+
 import '../../../../components/flutter_flow/flutter_flow_icon_button.dart';
-import '../../../../components/flutter_flow/flutter_flow_theme.dart';
+
 import '../../../../components/flutter_flow/flutter_flow_util.dart';
 import '../../../../components/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
@@ -52,11 +54,11 @@ class _QuestionaryTypeSelectOptionWidgetState
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: ThemeModeApp.of(context).primaryBackground,
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(120.0),
           child: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            backgroundColor: ThemeModeApp.of(context).primaryBackground,
             automaticallyImplyLeading: false,
             actions: [],
             flexibleSpace: FlexibleSpaceBar(
@@ -85,7 +87,7 @@ class _QuestionaryTypeSelectOptionWidgetState
                               buttonSize: 50.0,
                               icon: Icon(
                                 Icons.close,
-                                color: FlutterFlowTheme.of(context).error,
+                                color: ThemeModeApp.of(context).error,
                                 size: 30.0,
                               ),
                               onPressed: () async {
@@ -100,18 +102,17 @@ class _QuestionaryTypeSelectOptionWidgetState
                               animation: true,
                               animateFromLastPercent: true,
                               progressColor: Color(0xFF1F09E3),
-                              backgroundColor:
-                                  FlutterFlowTheme.of(context).accent4,
+                              backgroundColor: ThemeModeApp.of(context).accent4,
                               center: Text(
                                 FFLocalizations.of(context).getText(
                                   'qo2k4al5' /* 50% */,
                                 ),
                                 textAlign: TextAlign.start,
-                                style: FlutterFlowTheme.of(context)
+                                style: ThemeModeApp.of(context)
                                     .headlineSmall
-                                    .override(
+                                    .copyWith(
                                       fontFamily: 'Outfit',
-                                      color: FlutterFlowTheme.of(context)
+                                      color: ThemeModeApp.of(context)
                                           .primaryBtnText,
                                     ),
                               ),
@@ -140,7 +141,7 @@ class _QuestionaryTypeSelectOptionWidgetState
                 'zgtf2u36' /* Selecione a palavra que falta */,
               ),
               textAlign: TextAlign.center,
-              style: FlutterFlowTheme.of(context).bodyMedium.override(
+              style: ThemeModeApp.of(context).bodyMedium.copyWith(
                     fontFamily: 'Outfit',
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,
@@ -189,8 +190,8 @@ class _QuestionaryTypeSelectOptionWidgetState
                                       FFLocalizations.of(context).getText(
                                         '9skxwuoc' /* __________________ are boys. */,
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium,
+                                      style:
+                                          ThemeModeApp.of(context).bodyMedium,
                                     ),
                                   ],
                                 ),
@@ -217,13 +218,12 @@ class _QuestionaryTypeSelectOptionWidgetState
                                 24.0, 0.0, 24.0, 0.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Outfit',
-                                  color: Colors.white,
-                                ),
+                            color: ThemeModeApp.of(context).primary,
+                            textStyle:
+                                ThemeModeApp.of(context).titleSmall.copyWith(
+                                      fontFamily: 'Outfit',
+                                      color: Colors.white,
+                                    ),
                             elevation: 3.0,
                             borderSide: BorderSide(
                               color: Colors.transparent,
@@ -245,13 +245,12 @@ class _QuestionaryTypeSelectOptionWidgetState
                                 24.0, 0.0, 24.0, 0.0),
                             iconPadding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 0.0, 0.0, 0.0),
-                            color: FlutterFlowTheme.of(context).primary,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .titleSmall
-                                .override(
-                                  fontFamily: 'Outfit',
-                                  color: Colors.white,
-                                ),
+                            color: ThemeModeApp.of(context).primary,
+                            textStyle:
+                                ThemeModeApp.of(context).titleSmall.copyWith(
+                                      fontFamily: 'Outfit',
+                                      color: Colors.white,
+                                    ),
                             elevation: 3.0,
                             borderSide: BorderSide(
                               color: Colors.transparent,
@@ -298,7 +297,7 @@ class _QuestionaryTypeSelectOptionWidgetState
                   FFLocalizations.of(context).getText(
                     'h9du2hk8' /* Verificar */,
                   ),
-                  style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  style: ThemeModeApp.of(context).headlineMedium.copyWith(
                         fontFamily: 'Lexend Deca',
                         color: Colors.black,
                         fontWeight: FontWeight.bold,

@@ -1,4 +1,5 @@
-import '../../../components/flutter_flow/flutter_flow_theme.dart';
+import 'package:phrase_flow/app/global/theme/theme_mode.dart';
+
 import '../../../components/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -44,7 +45,7 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
 
     return Scaffold(
       key: scaffoldKey,
-      backgroundColor: FlutterFlowTheme.of(context).secondaryBackground,
+      backgroundColor: ThemeModeApp.of(context).secondaryBackground,
       body: SafeArea(
         top: true,
         child: Column(
@@ -57,7 +58,7 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
                 FFLocalizations.of(context).getText(
                   'ssao6uj8' /* Tarefas Concluidas */,
                 ),
-                style: FlutterFlowTheme.of(context).headlineLarge,
+                style: ThemeModeApp.of(context).headlineLarge,
               ),
             ),
             Padding(
@@ -66,7 +67,7 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
                 FFLocalizations.of(context).getText(
                   'o264vmox' /* Todas as atividades do mês */,
                 ),
-                style: FlutterFlowTheme.of(context).labelMedium,
+                style: ThemeModeApp.of(context).labelMedium,
               ),
             ),
             Padding(
@@ -94,7 +95,7 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
                                 width: 16.0,
                                 height: 16.0,
                                 decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).alternate,
+                                  color: ThemeModeApp.of(context).alternate,
                                   shape: BoxShape.circle,
                                 ),
                               ),
@@ -102,7 +103,7 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
                                 width: 2.0,
                                 height: 110.0,
                                 decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).alternate,
+                                  color: ThemeModeApp.of(context).alternate,
                                 ),
                               ),
                             ],
@@ -130,18 +131,18 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
                                       FFLocalizations.of(context).getText(
                                         'mqnd2kj7' /* 14, Sept. 2021 */,
                                       ),
-                                      style: FlutterFlowTheme.of(context)
+                                      style: ThemeModeApp.of(context)
                                           .labelMedium
-                                          .override(
+                                          .copyWith(
                                             fontFamily: 'Outfit',
-                                            color: FlutterFlowTheme.of(context)
+                                            color: ThemeModeApp.of(context)
                                                 .secondaryText,
                                             fontSize: 12.0,
                                           ),
                                     ),
                                     Icon(
                                       Icons.chevron_right_rounded,
-                                      color: FlutterFlowTheme.of(context)
+                                      color: ThemeModeApp.of(context)
                                           .secondaryText,
                                       size: 24.0,
                                     ),
@@ -154,8 +155,7 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
                                       FFLocalizations.of(context).getText(
                                         'zvjodn57' /* Created New User */,
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyLarge,
+                                      style: ThemeModeApp.of(context).bodyLarge,
                                     ),
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
@@ -164,13 +164,12 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
                                         FFLocalizations.of(context).getText(
                                           'c2db343g' /* Andrew Daniels */,
                                         ),
-                                        style: FlutterFlowTheme.of(context)
+                                        style: ThemeModeApp.of(context)
                                             .titleMedium
-                                            .override(
+                                            .copyWith(
                                               fontFamily: 'Outfit',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
+                                              color: ThemeModeApp.of(context)
+                                                  .primary,
                                             ),
                                       ),
                                     ),
@@ -201,13 +200,12 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
                                           FFLocalizations.of(context).getText(
                                             '5umq2eoy' /* Andrew F. */,
                                           ),
-                                          style: FlutterFlowTheme.of(context)
+                                          style: ThemeModeApp.of(context)
                                               .labelMedium
-                                              .override(
+                                              .copyWith(
                                                 fontFamily: 'Outfit',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
+                                                color: ThemeModeApp.of(context)
+                                                    .secondaryText,
                                                 fontSize: 12.0,
                                               ),
                                         ),
@@ -240,7 +238,7 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
                                 width: 16.0,
                                 height: 16.0,
                                 decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).alternate,
+                                  color: ThemeModeApp.of(context).alternate,
                                   shape: BoxShape.circle,
                                 ),
                               ),
@@ -248,7 +246,7 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
                                 width: 2.0,
                                 height: 110.0,
                                 decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).alternate,
+                                  color: ThemeModeApp.of(context).alternate,
                                 ),
                               ),
                             ],
@@ -276,18 +274,18 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
                                       FFLocalizations.of(context).getText(
                                         'akytqbdo' /* 14, Sept. 2021 */,
                                       ),
-                                      style: FlutterFlowTheme.of(context)
+                                      style: ThemeModeApp.of(context)
                                           .labelMedium
-                                          .override(
+                                          .copyWith(
                                             fontFamily: 'Outfit',
-                                            color: FlutterFlowTheme.of(context)
+                                            color: ThemeModeApp.of(context)
                                                 .secondaryText,
                                             fontSize: 12.0,
                                           ),
                                     ),
                                     Icon(
                                       Icons.chevron_right_rounded,
-                                      color: FlutterFlowTheme.of(context)
+                                      color: ThemeModeApp.of(context)
                                           .secondaryText,
                                       size: 24.0,
                                     ),
@@ -300,11 +298,11 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
                                       FFLocalizations.of(context).getText(
                                         'nvtw6ffp' /* Creted a Group */,
                                       ),
-                                      style: FlutterFlowTheme.of(context)
+                                      style: ThemeModeApp.of(context)
                                           .bodyLarge
-                                          .override(
+                                          .copyWith(
                                             fontFamily: 'Outfit',
-                                            color: FlutterFlowTheme.of(context)
+                                            color: ThemeModeApp.of(context)
                                                 .secondaryText,
                                           ),
                                     ),
@@ -315,9 +313,9 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
                                         FFLocalizations.of(context).getText(
                                           'zmk24446' /* Design Team */,
                                         ),
-                                        style: FlutterFlowTheme.of(context)
+                                        style: ThemeModeApp.of(context)
                                             .titleMedium
-                                            .override(
+                                            .copyWith(
                                               fontFamily: 'Outfit',
                                               color: Color(0xFF39D2C0),
                                             ),
@@ -350,13 +348,12 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
                                           FFLocalizations.of(context).getText(
                                             '6u2o9gd5' /* Andrew F. */,
                                           ),
-                                          style: FlutterFlowTheme.of(context)
+                                          style: ThemeModeApp.of(context)
                                               .labelMedium
-                                              .override(
+                                              .copyWith(
                                                 fontFamily: 'Outfit',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
+                                                color: ThemeModeApp.of(context)
+                                                    .secondaryText,
                                                 fontSize: 12.0,
                                               ),
                                         ),
@@ -389,7 +386,7 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
                                 width: 16.0,
                                 height: 16.0,
                                 decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).alternate,
+                                  color: ThemeModeApp.of(context).alternate,
                                   shape: BoxShape.circle,
                                 ),
                               ),
@@ -397,7 +394,7 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
                                 width: 2.0,
                                 height: 100.0,
                                 decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context).alternate,
+                                  color: ThemeModeApp.of(context).alternate,
                                 ),
                               ),
                             ],
@@ -425,17 +422,17 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
                                       FFLocalizations.of(context).getText(
                                         '1y4ibdyx' /* 14, Sept. 2021 */,
                                       ),
-                                      style: FlutterFlowTheme.of(context)
+                                      style: ThemeModeApp.of(context)
                                           .labelMedium
-                                          .override(
+                                          .copyWith(
                                             fontFamily: 'Outfit',
-                                            color: FlutterFlowTheme.of(context)
+                                            color: ThemeModeApp.of(context)
                                                 .secondaryText,
                                           ),
                                     ),
                                     Icon(
                                       Icons.chevron_right_rounded,
-                                      color: FlutterFlowTheme.of(context)
+                                      color: ThemeModeApp.of(context)
                                           .secondaryText,
                                       size: 24.0,
                                     ),
@@ -448,11 +445,11 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
                                       FFLocalizations.of(context).getText(
                                         'wl7gftdk' /* Created Invoice */,
                                       ),
-                                      style: FlutterFlowTheme.of(context)
+                                      style: ThemeModeApp.of(context)
                                           .bodyLarge
-                                          .override(
+                                          .copyWith(
                                             fontFamily: 'Outfit',
-                                            color: FlutterFlowTheme.of(context)
+                                            color: ThemeModeApp.of(context)
                                                 .secondaryText,
                                           ),
                                     ),
@@ -463,13 +460,12 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
                                         FFLocalizations.of(context).getText(
                                           'tgbguqdd' /* #402 - Contractor */,
                                         ),
-                                        style: FlutterFlowTheme.of(context)
+                                        style: ThemeModeApp.of(context)
                                             .titleMedium
-                                            .override(
+                                            .copyWith(
                                               fontFamily: 'Outfit',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
+                                              color: ThemeModeApp.of(context)
+                                                  .primary,
                                             ),
                                       ),
                                     ),
@@ -500,13 +496,12 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
                                           FFLocalizations.of(context).getText(
                                             'i4lzuiki' /* Andrew F. */,
                                           ),
-                                          style: FlutterFlowTheme.of(context)
+                                          style: ThemeModeApp.of(context)
                                               .labelMedium
-                                              .override(
+                                              .copyWith(
                                                 fontFamily: 'Outfit',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .secondaryText,
+                                                color: ThemeModeApp.of(context)
+                                                    .secondaryText,
                                                 fontSize: 12.0,
                                               ),
                                         ),
@@ -536,7 +531,7 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
                               width: 2.0,
                               height: 152.0,
                               decoration: BoxDecoration(
-                                color: FlutterFlowTheme.of(context).alternate,
+                                color: ThemeModeApp.of(context).alternate,
                               ),
                             ),
                           ),
@@ -570,7 +565,7 @@ class _TimelineatividadeWidgetState extends State<TimelineatividadeWidget> {
                 FFLocalizations.of(context).getText(
                   'o09sptxx' /* Beginning of Activity */,
                 ),
-                style: FlutterFlowTheme.of(context).bodyLarge,
+                style: ThemeModeApp.of(context).bodyLarge,
               ),
             ),
           ],

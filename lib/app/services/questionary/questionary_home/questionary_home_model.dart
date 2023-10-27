@@ -1,14 +1,12 @@
-import 'package:phrase_flow/app/services/questionary/questionary_home/questionary_page.dart';
 import 'package:phrase_flow/index.dart';
 
 import '../../../../components/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 
-class QuestionaryTypeWriteModel extends FlutterFlowModel<QuestionarioTipos> {
+class QuestionarioHomeFunctions extends FlutterFlowModel<QuestionarioTipos> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  final PageController pageController = PageController();
 
   /// Initialization and disposal methods.
   Future<PageController> initPageController() async {
@@ -33,9 +31,9 @@ class QuestionaryTypeWriteModel extends FlutterFlowModel<QuestionarioTipos> {
     SuccessPageWidget(),
   ];
 
+  @override
   void dispose() {
-    unfocusNode.dispose();
-    pageController.dispose();
+    // TODO: implement dispose
   }
 
   /// Action blocks are added here.

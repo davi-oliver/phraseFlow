@@ -25,6 +25,38 @@ mixin _$QuestionarioStore on _QuestionarioStoreBase, Store {
     });
   }
 
+  late final _$controllerPageViewAtom =
+      Atom(name: '_QuestionarioStoreBase.controllerPageView', context: context);
+
+  @override
+  PageController get controllerPageView {
+    _$controllerPageViewAtom.reportRead();
+    return super.controllerPageView;
+  }
+
+  @override
+  set controllerPageView(PageController value) {
+    _$controllerPageViewAtom.reportWrite(value, super.controllerPageView, () {
+      super.controllerPageView = value;
+    });
+  }
+
+  late final _$selectedIndexAtom =
+      Atom(name: '_QuestionarioStoreBase.selectedIndex', context: context);
+
+  @override
+  int get selectedIndex {
+    _$selectedIndexAtom.reportRead();
+    return super.selectedIndex;
+  }
+
+  @override
+  set selectedIndex(int value) {
+    _$selectedIndexAtom.reportWrite(value, super.selectedIndex, () {
+      super.selectedIndex = value;
+    });
+  }
+
   late final _$loadingAtom =
       Atom(name: '_QuestionarioStoreBase.loading', context: context);
 
@@ -43,6 +75,39 @@ mixin _$QuestionarioStore on _QuestionarioStoreBase, Store {
 
   late final _$_QuestionarioStoreBaseActionController =
       ActionController(name: '_QuestionarioStoreBase', context: context);
+
+  @override
+  void setSelectedIndex(int value) {
+    final _$actionInfo = _$_QuestionarioStoreBaseActionController.startAction(
+        name: '_QuestionarioStoreBase.setSelectedIndex');
+    try {
+      return super.setSelectedIndex(value);
+    } finally {
+      _$_QuestionarioStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void setControllerPageView(PageController valueController) {
+    final _$actionInfo = _$_QuestionarioStoreBaseActionController.startAction(
+        name: '_QuestionarioStoreBase.setControllerPageView');
+    try {
+      return super.setControllerPageView(valueController);
+    } finally {
+      _$_QuestionarioStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void animateControllerPageView() {
+    final _$actionInfo = _$_QuestionarioStoreBaseActionController.startAction(
+        name: '_QuestionarioStoreBase.animateControllerPageView');
+    try {
+      return super.animateControllerPageView();
+    } finally {
+      _$_QuestionarioStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
 
   @override
   void addQuestion(dynamic question) {
@@ -92,6 +157,8 @@ mixin _$QuestionarioStore on _QuestionarioStoreBase, Store {
   String toString() {
     return '''
 questions: ${questions},
+controllerPageView: ${controllerPageView},
+selectedIndex: ${selectedIndex},
 loading: ${loading}
     ''';
   }

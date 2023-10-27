@@ -1,5 +1,7 @@
+import 'package:phrase_flow/app/global/theme/theme_mode.dart';
+
 import '../../../../components/flutter_flow/flutter_flow_icon_button.dart';
-import '../../../../components/flutter_flow/flutter_flow_theme.dart';
+
 import '../../../../components/flutter_flow/flutter_flow_util.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -51,11 +53,11 @@ class _QuestionaryTipeSelectImageWidgetState
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: ThemeModeApp.of(context).primaryBackground,
         appBar: PreferredSize(
           preferredSize: Size.fromHeight(120.0),
           child: AppBar(
-            backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+            backgroundColor: ThemeModeApp.of(context).primaryBackground,
             automaticallyImplyLeading: false,
             actions: [],
             flexibleSpace: FlexibleSpaceBar(
@@ -84,7 +86,7 @@ class _QuestionaryTipeSelectImageWidgetState
                               buttonSize: 50.0,
                               icon: Icon(
                                 Icons.close,
-                                color: FlutterFlowTheme.of(context).error,
+                                color: ThemeModeApp.of(context).error,
                                 size: 30.0,
                               ),
                               onPressed: () async {
@@ -99,18 +101,17 @@ class _QuestionaryTipeSelectImageWidgetState
                               animation: true,
                               animateFromLastPercent: true,
                               progressColor: Color(0xFF1F09E3),
-                              backgroundColor:
-                                  FlutterFlowTheme.of(context).accent4,
+                              backgroundColor: ThemeModeApp.of(context).accent4,
                               center: Text(
                                 FFLocalizations.of(context).getText(
                                   '8ff1vseb' /* 50% */,
                                 ),
                                 textAlign: TextAlign.start,
-                                style: FlutterFlowTheme.of(context)
+                                style: ThemeModeApp.of(context)
                                     .headlineSmall
-                                    .override(
+                                    .copyWith(
                                       fontFamily: 'Outfit',
-                                      color: FlutterFlowTheme.of(context)
+                                      color: ThemeModeApp.of(context)
                                           .primaryBtnText,
                                     ),
                               ),
@@ -255,7 +256,7 @@ class _QuestionaryTipeSelectImageWidgetState
                   FFLocalizations.of(context).getText(
                     'rrr41s8i' /* Verificar */,
                   ),
-                  style: FlutterFlowTheme.of(context).headlineMedium.override(
+                  style: ThemeModeApp.of(context).headlineMedium.copyWith(
                         fontFamily: 'Lexend Deca',
                         color: Colors.black,
                         fontWeight: FontWeight.bold,

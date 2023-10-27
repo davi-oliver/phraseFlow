@@ -1,8 +1,9 @@
-import '../../components/flutter_flow/flutter_flow_util.dart';
-import 'login_page_widget.dart' show LoginPageWidget;
+import 'package:phrase_flow/components/flutter_flow/flutter_flow_model.dart';
+
+import 'login_widget.dart' show LoginWidget;
 import 'package:flutter/material.dart';
 
-class LoginPageModel extends FlutterFlowModel<LoginPageWidget> {
+class LoginModel extends FlutterFlowModel<LoginWidget> {
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
