@@ -2,7 +2,7 @@ import 'dart:developer';
 
 import 'package:fluid_bottom_nav_bar/fluid_bottom_nav_bar.dart';
 import 'package:phrase_flow/app/global/theme/theme_mode.dart';
-import 'package:phrase_flow/app/success_page/success_page_widget.dart';
+import 'package:phrase_flow/app/profile04/profile04_widget.dart';
 import 'package:provider/provider.dart';
 
 import '../../backend/datasource/get.dart';
@@ -29,6 +29,8 @@ class _AcompanhamenttodasatividadesWidgetState
   late AcompanhamenttodasatividadesModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+  PageController _pageController = PageController();
+  int _selectedIndex = 0;
   Future getQuestoes() async {
     final store = Provider.of<QuestionarioStore>(context, listen: false);
 
@@ -54,6 +56,10 @@ class _AcompanhamenttodasatividadesWidgetState
 
   init() async {
     await getQuestoes();
+    final pageControlerAux = PageController(initialPage: 0);
+    setState(() {
+      _pageController = pageControlerAux;
+    });
   }
 
   @override
@@ -80,12 +86,27 @@ class _AcompanhamenttodasatividadesWidgetState
       switch (index) {
         case 0:
           _child = AcompanhamenttodasatividadesWidget();
+          _pageController.animateToPage(
+            index,
+            duration: Duration(milliseconds: 500),
+            curve: Curves.easeInOut,
+          );
           break;
         case 1:
           _child = AcompanhamenttodasatividadesWidget();
+          _pageController.animateToPage(
+            index,
+            duration: Duration(milliseconds: 500),
+            curve: Curves.easeInOut,
+          );
           break;
         case 2:
-          _child = SuccessPageWidget();
+          _child = Profile04Widget();
+          _pageController.animateToPage(
+            index,
+            duration: Duration(milliseconds: 500),
+            curve: Curves.easeInOut,
+          );
           break;
       }
       _child = AnimatedSwitcher(
@@ -158,164 +179,17 @@ class _AcompanhamenttodasatividadesWidgetState
                 tablet: false,
               ))
                 HomeWidgets(context).navebarSide(),
-              Expanded(
-                child: Align(
-                  alignment: AlignmentDirectional(0.00, -1.00),
-                  child: Container(
-                    width: double.infinity,
-                    constraints: BoxConstraints(
-                      maxWidth: 1170.0,
+              if (responsiveVisibility(
+                context: context,
+              ))
+                Expanded(
+                  child: PageView(controller: _pageController, children: [
+                    HomeMobileWebPage(
+                      model: _model,
                     ),
-                    decoration: BoxDecoration(),
-                    child: SingleChildScrollView(
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 16.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Expanded(
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 20.0, 0.0, 0.0),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            'ly0yzpc1' /* Idiomas */,
-                                          ),
-                                          style: ThemeModeApp.of(context)
-                                              .headlineMedium
-                                              .copyWith(
-                                                fontFamily: 'Outfit',
-                                                color: ThemeModeApp.of(context)
-                                                    .primaryText,
-                                                fontSize: 24.0,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                        ),
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            24.0, 4.0, 0.0, 0.0),
-                                        child: Text(
-                                          FFLocalizations.of(context).getText(
-                                            '52ih3rrb' /* Seus cursos  */,
-                                          ),
-                                          textAlign: TextAlign.start,
-                                          style: ThemeModeApp.of(context)
-                                              .labelMedium
-                                              .copyWith(
-                                                fontFamily: 'Plus Jakarta Sans',
-                                                color: ThemeModeApp.of(context)
-                                                    .secondaryText,
-                                                fontSize: 14.0,
-                                                fontWeight: FontWeight.w500,
-                                              ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                if (responsiveVisibility(
-                                  context: context,
-                                  phone: false,
-                                ))
-                                  HomeWidgets(context).atetresidiomas(),
-                                HomeWidgets(context).botaoAdicionarIdioma(),
-                              ],
-                            ),
-                          ),
-                          HomeWidgets(context).filtroProgresso(_model),
-                          if (responsiveVisibility(
-                              context: context, phone: false, tablet: false))
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
-                              child: GridView.builder(
-                                gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 3,
-                                  crossAxisSpacing: 10.0,
-                                  mainAxisSpacing: 10.0,
-                                  childAspectRatio: 1.5,
-                                ),
-                                itemCount: cardWebList.length,
-                                primary: false,
-                                shrinkWrap: true,
-                                scrollDirection: Axis.vertical,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return cardWebList[index];
-                                },
-                              ),
-                            ),
-                          if (responsiveVisibility(
-                            context: context,
-                            phone: false,
-                            desktop: false,
-                            tabletLandscape: false,
-                          ))
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
-                              child: GridView.builder(
-                                gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 2,
-                                  crossAxisSpacing: 10.0,
-                                  mainAxisSpacing: 10.0,
-                                  childAspectRatio: 1.5,
-                                ),
-                                itemCount: cardWebList.length,
-                                primary: false,
-                                shrinkWrap: true,
-                                scrollDirection: Axis.vertical,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return cardWebList[index];
-                                },
-                              ),
-                            ),
-                          // // mobile
-                          if (responsiveVisibility(
-                            context: context,
-                            tablet: false,
-                            desktop: false,
-                            tabletLandscape: false,
-                          ))
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  16.0, 0.0, 16.0, 0.0),
-                              child: GridView.builder(
-                                gridDelegate:
-                                    SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 1,
-                                  crossAxisSpacing: 10.0,
-                                  mainAxisSpacing: 10.0,
-                                  childAspectRatio: 1.5,
-                                ),
-                                itemCount: cardWebList.length,
-                                primary: false,
-                                shrinkWrap: true,
-                                scrollDirection: Axis.vertical,
-                                itemBuilder: (BuildContext context, int index) {
-                                  return cardMobileList[index];
-                                },
-                              ),
-                            ),
-                        ],
-                      ),
-                    ),
-                  ),
+                    Profile04Widget()
+                  ]),
                 ),
-              ),
               SizedBox(
                 height: MediaQuery.of(context).size.height * .3,
               ),
@@ -349,6 +223,159 @@ List<Widget> cardMobileList = [
   cardMobile(),
   cardMobile(),
 ];
+
+class HomeMobileWebPage extends StatefulWidget {
+  const HomeMobileWebPage({super.key, required this.model});
+  final AcompanhamenttodasatividadesModel model;
+  @override
+  State<HomeMobileWebPage> createState() => _HomeMobileWebPageState();
+}
+
+class _HomeMobileWebPageState extends State<HomeMobileWebPage> {
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: AlignmentDirectional(0.00, -1.00),
+      child: Container(
+        width: double.infinity,
+        constraints: BoxConstraints(
+          maxWidth: 1170.0,
+        ),
+        decoration: BoxDecoration(),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 16.0, 0.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                24.0, 20.0, 0.0, 0.0),
+                            child: Text(
+                              "Olá, Andrew ",
+                              style: ThemeModeApp.of(context)
+                                  .headlineMedium
+                                  .copyWith(
+                                    color: ThemeModeApp.of(context).primaryText,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                24.0, 4.0, 0.0, 0.0),
+                            child: Text(
+                              "Seus idiomas",
+                              textAlign: TextAlign.start,
+                              style: ThemeModeApp.of(context)
+                                  .labelMedium
+                                  .copyWith(
+                                    color:
+                                        ThemeModeApp.of(context).secondaryText,
+                                    fontSize: 14.0,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    if (responsiveVisibility(
+                      context: context,
+                      phone: false,
+                    ))
+                      HomeWidgets(context).atetresidiomas(),
+                    HomeWidgets(context).botaoAdicionarIdioma(),
+                  ],
+                ),
+              ),
+              HomeWidgets(context).filtroProgresso(widget.model),
+              if (responsiveVisibility(
+                  context: context, phone: false, tablet: false))
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                  child: GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 3,
+                      crossAxisSpacing: 10.0,
+                      mainAxisSpacing: 10.0,
+                      childAspectRatio: 1.5,
+                    ),
+                    itemCount: cardWebList.length,
+                    primary: false,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (BuildContext context, int index) {
+                      return cardWebList[index];
+                    },
+                  ),
+                ),
+              if (responsiveVisibility(
+                context: context,
+                phone: false,
+                desktop: false,
+                tabletLandscape: false,
+              ))
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                  child: GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 10.0,
+                      mainAxisSpacing: 10.0,
+                      childAspectRatio: 1.5,
+                    ),
+                    itemCount: cardWebList.length,
+                    primary: false,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (BuildContext context, int index) {
+                      return cardWebList[index];
+                    },
+                  ),
+                ),
+              // // mobile
+              if (responsiveVisibility(
+                context: context,
+                tablet: false,
+                desktop: false,
+                tabletLandscape: false,
+              ))
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                  child: GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 1,
+                      crossAxisSpacing: 10.0,
+                      mainAxisSpacing: 10.0,
+                      childAspectRatio: 1.5,
+                    ),
+                    itemCount: cardWebList.length,
+                    primary: false,
+                    shrinkWrap: true,
+                    scrollDirection: Axis.vertical,
+                    itemBuilder: (BuildContext context, int index) {
+                      return cardMobileList[index];
+                    },
+                  ),
+                ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
 
 class cardWeb2 extends StatelessWidget {
   const cardWeb2({

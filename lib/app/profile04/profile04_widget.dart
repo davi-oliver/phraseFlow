@@ -50,9 +50,7 @@ class _Profile04WidgetState extends State<Profile04Widget> {
         backgroundColor: ThemeModeApp.of(context).secondaryBackground,
         automaticallyImplyLeading: false,
         title: Text(
-          FFLocalizations.of(context).getText(
-            '64x104uh' /* Profile */,
-          ),
+          "Perfil",
           style: ThemeModeApp.of(context).displaySmall,
         ),
         actions: [],
@@ -113,22 +111,17 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              FFLocalizations.of(context).getText(
-                                'mxds0wrz' /* Phrase Flow */,
-                              ),
+                              "PhraseFlow",
                               style: ThemeModeApp.of(context).headlineSmall,
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 4.0, 0.0, 0.0),
                               child: Text(
-                                FFLocalizations.of(context).getText(
-                                  '3nn28i4l' /* phrflow.io@pflw.com */,
-                                ),
+                                "phraseFlow.io.com",
                                 style: ThemeModeApp.of(context)
                                     .bodySmall
                                     .copyWith(
-                                      fontFamily: 'Outfit',
                                       color: ThemeModeApp.of(context).primary,
                                       fontSize: 14.0,
                                       fontWeight: FontWeight.normal,
@@ -171,10 +164,8 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              FFLocalizations.of(context).getText(
-                                '6iqw6zcg' /* Escolha o tema */,
-                              ),
-                              style: ThemeModeApp.of(context).bodyMedium,
+                              "Escolha o tema",
+                              style: ThemeModeApp.of(context).headlineSmall,
                             ),
                             Container(
                               width: 80.0,
@@ -252,10 +243,8 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             Text(
-                              FFLocalizations.of(context).getText(
-                                'dhh2ajtk' /* Switch to Light Mode */,
-                              ),
-                              style: ThemeModeApp.of(context).bodyMedium,
+                              "Escolha o tema",
+                              style: ThemeModeApp.of(context).headlineSmall,
                             ),
                             Container(
                               width: 80.0,
@@ -324,9 +313,7 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(24.0, 12.0, 0.0, 12.0),
                     child: Text(
-                      FFLocalizations.of(context).getText(
-                        'bj1tt02c' /* Configure sua conta */,
-                      ),
+                      "Configure sua conta",
                       style: ThemeModeApp.of(context).labelMedium,
                     ),
                   ),
@@ -363,9 +350,7 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 0.0, 0.0),
                           child: Text(
-                            FFLocalizations.of(context).getText(
-                              '83mir7k2' /* Mudar Senha */,
-                            ),
+                            "Alterar Cadastro",
                             style: ThemeModeApp.of(context).labelMedium,
                           ),
                         ),
@@ -410,9 +395,7 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               12.0, 0.0, 0.0, 0.0),
                           child: Text(
-                            FFLocalizations.of(context).getText(
-                              'jcsu989w' /* Editar Perfil */,
-                            ),
+                            "Configurações e Privacidade",
                             style: ThemeModeApp.of(context).labelMedium,
                           ),
                         ),
@@ -439,11 +422,9 @@ class _Profile04WidgetState extends State<Profile04Widget> {
                   children: [
                     FFButtonWidget(
                       onPressed: () async {
-                        context.pushNamed('LoginPage');
+                        context.pushNamed('loginPage');
                       },
-                      text: FFLocalizations.of(context).getText(
-                        '7nxyqizd' /* Sair */,
-                      ),
+                      text: "Sair",
                       options: FFButtonOptions(
                         width: 90.0,
                         height: 40.0,
