@@ -28,11 +28,19 @@ class _QuestionarioTiposState extends State<QuestionarioTipos> {
     init();
   }
 
+  bool initPage = false;
+
   Future init() async {
+    if (initPage) {
+      return;
+    }
     final questionarioStore =
         Provider.of<QuestionarioStore>(context, listen: false);
     questionarioStore.setControllerPageView(
         await QuestionarioHomeFunctions().initPageController());
+    questionarioStore.setSelectedIndex(0);
+    calculateProgress(0, questionarioStore.questions.length);
+    initPage = true;
   }
 
   @override
@@ -41,10 +49,21 @@ class _QuestionarioTiposState extends State<QuestionarioTipos> {
   }
 
   double calculateProgress(int currentPosition, int listLength) {
+    print("O length $listLength.");
+
     if (currentPosition == 0) {
-      return 0.0;
+      return 0;
+    }
+    if (currentPosition >= 0 && currentPosition < listLength) {
+      int totalElementos = listLength;
+      double porcentagem = (currentPosition + 1) / totalElementos;
+
+      print(
+          "O elemento na posição $currentPosition  representa ${porcentagem.toStringAsFixed(2)}% do total.");
+      return porcentagem;
     } else {
-      return (currentPosition / listLength) * 100.0;
+      print("O índice fornecido está fora dos limites da lista.");
+      return 0.0;
     }
   }
 
@@ -103,16 +122,21 @@ class _QuestionarioTiposState extends State<QuestionarioTipos> {
                               progressColor: Color(0xFF1F09E3),
                               backgroundColor: ThemeModeApp.of(context).accent4,
                               center: Text(
-                                FFLocalizations.of(context).getText(
-                                  'fe5i3sua' /* 50% */,
-                                ),
+                                "${calculateProgress(questionarioStoreT.selectedIndex, questionarioStoreT.questions.length) * 100}%",
                                 textAlign: TextAlign.start,
                                 style: ThemeModeApp.of(context)
                                     .headlineSmall
                                     .copyWith(
-                                      fontFamily: 'Outfit',
-                                      color: ThemeModeApp.of(context)
-                                          .primaryBtnText,
+                                      color: calculateProgress(
+                                                  questionarioStoreT
+                                                      .selectedIndex,
+                                                  questionarioStoreT
+                                                      .questions.length) >=
+                                              0.40
+                                          ? ThemeModeApp.of(context)
+                                              .primaryBtnText
+                                          : ThemeModeApp.of(context)
+                                              .primaryText,
                                     ),
                               ),
                               barRadius: Radius.circular(50.0),
@@ -137,6 +161,8 @@ class _QuestionarioTiposState extends State<QuestionarioTipos> {
   Widget build(BuildContext context) {
     final questionarioStoreT =
         Provider.of<QuestionarioStore>(context, listen: true);
+    final questionarioStore =
+        Provider.of<QuestionarioStore>(context, listen: false);
     if (isiOS) {
       SystemChrome.setSystemUIOverlayStyle(
         SystemUiOverlayStyle(
@@ -151,37 +177,101 @@ class _QuestionarioTiposState extends State<QuestionarioTipos> {
           ? FocusScope.of(context)
               .requestFocus(QuestionarioHomeFunctions().unfocusNode)
           : FocusScope.of(context).unfocus(),
-      child: Observer(builder: (_) {
-        return Scaffold(
-          key: scaffoldKey,
-          backgroundColor: ThemeModeApp.of(context).secondaryBackground,
-          appBar: progressbarLesson(),
-          body: Container(
-            width: double.infinity,
-            height: double.infinity,
-            child: Column(
-              children: [
-                Expanded(
+      child: Scaffold(
+        key: scaffoldKey,
+        backgroundColor: ThemeModeApp.of(context).secondaryBackground,
+        appBar: progressbarLesson(),
+        body: Container(
+          width: double.infinity,
+          height: double.infinity,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Observer(builder: (_) {
+                return Expanded(
                   child: PageView.builder(
                     controller: questionarioStoreT.controllerPageView,
                     physics: NeverScrollableScrollPhysics(),
                     itemCount: questionarioStoreT.questions.length,
                     itemBuilder: (context, index) {
-                      return cardTextTranslate(
-                        questionarioStore: questionarioStoreT,
-                        index: index,
+                      return SingleChildScrollView(
+                        child: Column(
+                          children: [
+                            cardTextTranslate(
+                              questionarioStore: questionarioStoreT,
+                              index: index,
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  top: MediaQuery.of(context).size.height * 0.3,
+                                  left: 16.0,
+                                  right: 16),
+                              child: Container(
+                                width: MediaQuery.of(context).size.width * .6,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.1,
+                                child: InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    setState(() {
+                                      questionarioStore
+                                          .animateControllerPageView();
+                                      questionarioStore.controllerPageView
+                                          .nextPage(
+                                              duration:
+                                                  Duration(milliseconds: 500),
+                                              curve: Curves.fastOutSlowIn);
+                                      questionarioStore
+                                          .setSelectedIndex(index + 1);
+                                    });
+                                  },
+                                  child: Container(
+                                    width: MediaQuery.of(context).size.width,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xF313EE0B),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          blurRadius: 4.0,
+                                          color: Color(0xF313EE0B),
+                                          offset: Offset(0.0, -2.0),
+                                        )
+                                      ],
+                                      borderRadius: BorderRadius.only(
+                                        bottomLeft: Radius.circular(10.0),
+                                        bottomRight: Radius.circular(10.0),
+                                        topLeft: Radius.circular(16.0),
+                                        topRight: Radius.circular(16.0),
+                                      ),
+                                    ),
+                                    alignment:
+                                        AlignmentDirectional(0.00, -0.35),
+                                    child: Text(
+                                      "Verificar",
+                                      style: ThemeModeApp.of(context)
+                                          .headlineMedium
+                                          .copyWith(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            )
+                          ],
+                        ),
                       );
                     },
                   ),
-                ),
-                BotaoVerificar(
-                  index: questionarioStoreT.controllerPageView.page!.toInt(),
-                ),
-              ],
-            ),
+                );
+              }),
+            ],
           ),
-        );
-      }),
+        ),
+      ),
     );
   }
 }

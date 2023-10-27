@@ -3,7 +3,6 @@ import 'package:phrase_flow/app/global/theme/theme_mode.dart';
 import 'package:phrase_flow/app/services/questionary/store/store.dart';
 
 import 'package:phrase_flow/components/flutter_flow/flutter_flow_util.dart';
-import 'package:provider/provider.dart';
 
 class QuestionaryWidgets {
   BuildContext context;
@@ -34,24 +33,22 @@ class CardInputOrSpeetch extends StatelessWidget {
               decoration: InputDecoration(
                 labelText: 'Resposta',
                 labelStyle: ThemeModeApp.of(context).headlineSmall.copyWith(
-                      fontFamily: 'Outfit',
-                      color: ThemeModeApp.of(context).primaryBtnText,
+                      color: ThemeModeApp.of(context).primary,
                     ),
                 hintText: 'Digite sua resposta',
                 hintStyle: ThemeModeApp.of(context).headlineSmall.copyWith(
-                      fontFamily: 'Outfit',
-                      color: ThemeModeApp.of(context).primaryBtnText,
+                      color: ThemeModeApp.of(context).primaryText,
                     ),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: ThemeModeApp.of(context).primaryBtnText,
+                    color: ThemeModeApp.of(context).secondaryText,
                     width: 2.0,
                   ),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderSide: BorderSide(
-                    color: ThemeModeApp.of(context).primaryBtnText,
+                    color: ThemeModeApp.of(context).secondary,
                     width: 2.0,
                   ),
                   borderRadius: BorderRadius.circular(8.0),
@@ -60,8 +57,7 @@ class CardInputOrSpeetch extends StatelessWidget {
                     EdgeInsets.symmetric(vertical: 10.0, horizontal: 12.0),
               ),
               style: ThemeModeApp.of(context).headlineSmall.copyWith(
-                    fontFamily: 'Outfit',
-                    color: ThemeModeApp.of(context).primaryBtnText,
+                    color: ThemeModeApp.of(context).primaryText,
                   ),
               onChanged: (value) {
                 print('Value changed: $value');
@@ -92,6 +88,7 @@ class cardTextTranslate extends StatelessWidget {
         padding: EdgeInsets.zero,
         primary: false,
         shrinkWrap: true,
+        physics: NeverScrollableScrollPhysics(),
         scrollDirection: Axis.vertical,
         children: [
           Padding(
@@ -187,75 +184,6 @@ class _questoesPageWidgetsState extends State<questoesPageWidgets> {
         children: [
           CardInputOrSpeetch(questionarioStore: widget.questionarioStore),
         ],
-      ),
-    );
-  }
-}
-
-// ignore: must_be_immutable
-class BotaoVerificar extends StatefulWidget {
-  BotaoVerificar({
-    required this.index,
-    super.key,
-  });
-
-  int? index;
-
-  @override
-  State<BotaoVerificar> createState() => _BotaoVerificarState();
-}
-
-class _BotaoVerificarState extends State<BotaoVerificar> {
-  @override
-  Widget build(BuildContext context) {
-    final questionarioStore = Provider.of<QuestionarioStore>(
-      context,
-    );
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      height: MediaQuery.of(context).size.height * 0.1,
-      child: InkWell(
-        splashColor: Colors.transparent,
-        focusColor: Colors.transparent,
-        hoverColor: Colors.transparent,
-        highlightColor: Colors.transparent,
-        onTap: () async {
-          setState(() {
-            questionarioStore.animateControllerPageView();
-            questionarioStore.setSelectedIndex(widget.index! + 1);
-          });
-        },
-        child: Container(
-          width: MediaQuery.of(context).size.width,
-          height: MediaQuery.of(context).size.height * 0.1,
-          decoration: BoxDecoration(
-            color: Color(0xF313EE0B),
-            boxShadow: [
-              BoxShadow(
-                blurRadius: 4.0,
-                color: Color(0xF313EE0B),
-                offset: Offset(0.0, -2.0),
-              )
-            ],
-            borderRadius: BorderRadius.only(
-              bottomLeft: Radius.circular(0.0),
-              bottomRight: Radius.circular(0.0),
-              topLeft: Radius.circular(16.0),
-              topRight: Radius.circular(16.0),
-            ),
-          ),
-          alignment: AlignmentDirectional(0.00, -0.35),
-          child: Text(
-            FFLocalizations.of(context).getText(
-              'kaegbx3m' /* Verificar */,
-            ),
-            style: ThemeModeApp.of(context).headlineMedium.copyWith(
-                  fontFamily: 'Lexend Deca',
-                  color: Colors.black,
-                  fontWeight: FontWeight.bold,
-                ),
-          ),
-        ),
       ),
     );
   }
