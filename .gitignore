@@ -29,6 +29,7 @@
 .packages
 .pub-cache/
 .pub/
+
  
 
 # Firebase – this is necessary if you use Firebase since it could otherwise 
