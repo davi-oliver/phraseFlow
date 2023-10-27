@@ -548,7 +548,7 @@ class cardWeb extends StatelessWidget {
           hoverColor: Colors.transparent,
           highlightColor: Colors.transparent,
           onTap: () async {
-            context.pushNamed('questionaryTypeWrite');
+            context.pushNamed('questionaryTypeWriteWidget');
           },
           child: Column(
             mainAxisSize: MainAxisSize.max,
@@ -757,7 +757,7 @@ class cardMobile extends StatelessWidget {
             hoverColor: Colors.transparent,
             highlightColor: Colors.transparent,
             onTap: () async {
-              context.pushNamed('questionaryTypeWrite');
+              context.pushNamed('questionaryTypeWriteWidget');
             },
             child: Column(
               mainAxisSize: MainAxisSize.max,

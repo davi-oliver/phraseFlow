@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:phrase_flow/app/services/questionary/questionary_home/questionary_page.dart';
 import 'package:provider/provider.dart';
 
 import '/index.dart';
@@ -108,9 +109,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => QuestionaryTipeSelectImageWidget(),
             ),
             FFRoute(
-              name: 'questionaryTypeWrite',
-              path: 'questionaryTypeWrite',
-              builder: (context, params) => QuestionaryTypeWriteWidget(),
+              name: 'questionaryTypeWriteWidget',
+              path: 'questionaryTypeWriteWidget',
+              builder: (context, params) => QuestionarioTipos(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

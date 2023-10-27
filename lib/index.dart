@@ -14,5 +14,5 @@ export 'app/login_page/createaccount/createaccount_widget.dart'
     show CreateaccountWidget;
 export 'app/services/questionary/questionary_tipe_select_image/questionary_tipe_select_image_widget.dart'
     show QuestionaryTipeSelectImageWidget;
-export 'app/services/questionary/questionary_type_write/questionary_type_write_widget.dart'
-    show QuestionaryTypeWriteWidget;
+export 'app/services/questionary/questionary_home/questionary_page.dart'
+    show QuestionarioTipos;
