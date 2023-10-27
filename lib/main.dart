@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:phrase_flow/app/global/store/global_store.dart';
 import 'package:phrase_flow/app/global/theme/theme_mode.dart';
 import 'package:phrase_flow/app/services/questionary/store/store.dart';
@@ -71,9 +69,6 @@ class _MyAppState extends State<MyApp> {
       title: 'PhraseFlow',
       localizationsDelegates: [
         FFLocalizationsDelegate(),
-        GlobalMaterialLocalizations.delegate,
-        GlobalWidgetsLocalizations.delegate,
-        GlobalCupertinoLocalizations.delegate,
       ],
       locale: _locale,
       supportedLocales: const [
