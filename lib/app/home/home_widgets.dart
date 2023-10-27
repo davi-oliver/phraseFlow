@@ -138,30 +138,6 @@ class HomeWidgets {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(40.0),
               child: Image.network(
-                'https://images.vexels.com/media/users/3/163966/isolated/preview/6ecbb5ec8c121c0699c9b9179d6b24aa-circulo-do-icone-do-idioma-da-bandeira-da-inglaterra.png',
-                width: 60.0,
-                height: 60.0,
-                fit: BoxFit.cover,
-              ),
-            ),
-          ),
-        ),
-        Container(
-          width: 40.0,
-          height: 40.0,
-          decoration: BoxDecoration(
-            color: Color(0x4D9489F5),
-            shape: BoxShape.circle,
-            border: Border.all(
-              color: Color(0xFF6F61EF),
-              width: 2.0,
-            ),
-          ),
-          child: Padding(
-            padding: EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(40.0),
-              child: Image.network(
                 'https://cdn-icons-png.flaticon.com/512/197/197560.png',
                 width: 60.0,
                 height: 60.0,
@@ -232,10 +208,10 @@ class HomeWidgets {
       width: 270.0,
       height: double.infinity,
       decoration: BoxDecoration(
-        color: Color(0xFFF1F4F8),
+        color: ThemeModeApp.of(context).primaryBackground,
         borderRadius: BorderRadius.circular(0.0),
         border: Border.all(
-          color: Color(0xFFE5E7EB),
+          color: ThemeModeApp.of(context).lineColor,
           width: 1.0,
         ),
       ),
@@ -265,7 +241,6 @@ class HomeWidgets {
                     child: Text(
                       "PhraseFlow",
                       style: ThemeModeApp.of(context).headlineMedium.copyWith(
-                            color: Color(0xFF15161E),
                             fontSize: 24.0,
                             fontWeight: FontWeight.w500,
                           ),
@@ -277,7 +252,7 @@ class HomeWidgets {
             Divider(
               height: 12.0,
               thickness: 2.0,
-              color: Color(0xFFE5E7EB),
+              color: ThemeModeApp.of(context).primaryBackground,
             ),
             Expanded(
               child: SingleChildScrollView(
@@ -306,7 +281,7 @@ class HomeWidgets {
                         width: double.infinity,
                         height: 44.0,
                         decoration: BoxDecoration(
-                          color: Color(0xFFF1F4F8),
+                          color: ThemeModeApp.of(context).lineColor,
                           borderRadius: BorderRadius.circular(12.0),
                           shape: BoxShape.rectangle,
                         ),
@@ -318,7 +293,7 @@ class HomeWidgets {
                             children: [
                               Icon(
                                 Icons.space_dashboard,
-                                color: ThemeModeApp.of(context).accent1,
+                                color: ThemeModeApp.of(context).primary,
                                 size: 24.0,
                               ),
                               Padding(
@@ -329,7 +304,6 @@ class HomeWidgets {
                                   style: ThemeModeApp.of(context)
                                       .bodyMedium
                                       .copyWith(
-                                        color: Color(0xFF15161E),
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -349,7 +323,7 @@ class HomeWidgets {
                         width: double.infinity,
                         height: 44.0,
                         decoration: BoxDecoration(
-                          color: Color(0xFFF1F4F8),
+                          color: ThemeModeApp.of(context).lineColor,
                           borderRadius: BorderRadius.circular(12.0),
                           shape: BoxShape.rectangle,
                         ),
@@ -361,7 +335,7 @@ class HomeWidgets {
                             children: [
                               Icon(
                                 Icons.forum_rounded,
-                                color: ThemeModeApp.of(context).accent1,
+                                color: ThemeModeApp.of(context).primary,
                                 size: 24.0,
                               ),
                               Padding(
@@ -372,7 +346,6 @@ class HomeWidgets {
                                   style: ThemeModeApp.of(context)
                                       .bodyMedium
                                       .copyWith(
-                                        color: Color(0xFF15161E),
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -404,7 +377,7 @@ class HomeWidgets {
                         width: double.infinity,
                         height: 44.0,
                         decoration: BoxDecoration(
-                          color: Color(0xFFF1F4F8),
+                          color: ThemeModeApp.of(context).lineColor,
                           borderRadius: BorderRadius.circular(12.0),
                           shape: BoxShape.rectangle,
                         ),
@@ -416,7 +389,7 @@ class HomeWidgets {
                             children: [
                               Icon(
                                 Icons.attach_money_rounded,
-                                color: ThemeModeApp.of(context).accent1,
+                                color: ThemeModeApp.of(context).primary,
                                 size: 24.0,
                               ),
                               Padding(
@@ -427,7 +400,6 @@ class HomeWidgets {
                                   style: ThemeModeApp.of(context)
                                       .bodyMedium
                                       .copyWith(
-                                        color: Color(0xFF15161E),
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -447,7 +419,7 @@ class HomeWidgets {
                         width: double.infinity,
                         height: 44.0,
                         decoration: BoxDecoration(
-                          color: Color(0xFFF1F4F8),
+                          color: ThemeModeApp.of(context).lineColor,
                           borderRadius: BorderRadius.circular(12.0),
                           shape: BoxShape.rectangle,
                         ),
@@ -459,7 +431,7 @@ class HomeWidgets {
                             children: [
                               Icon(
                                 Icons.settings_outlined,
-                                color: ThemeModeApp.of(context).accent1,
+                                color: ThemeModeApp.of(context).primary,
                                 size: 24.0,
                               ),
                               Padding(
@@ -470,7 +442,6 @@ class HomeWidgets {
                                   style: ThemeModeApp.of(context)
                                       .bodyMedium
                                       .copyWith(
-                                        color: Color(0xFF15161E),
                                         fontSize: 14.0,
                                         fontWeight: FontWeight.w500,
                                       ),
@@ -488,7 +459,7 @@ class HomeWidgets {
             Divider(
               height: 12.0,
               thickness: 2.0,
-              color: Color(0xFFE5E7EB),
+              color: ThemeModeApp.of(context).lineColor,
             ),
             Padding(
               padding: EdgeInsetsDirectional.fromSTEB(16.0, 12.0, 16.0, 12.0),
@@ -534,7 +505,6 @@ class HomeWidgets {
                           Text(
                             "Andrew D.",
                             style: ThemeModeApp.of(context).bodyLarge.copyWith(
-                                  color: Color(0xFF15161E),
                                   fontSize: 16.0,
                                   fontWeight: FontWeight.w600,
                                 ),

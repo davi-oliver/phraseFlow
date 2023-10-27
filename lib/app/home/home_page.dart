@@ -236,7 +236,33 @@ class _AcompanhamenttodasatividadesWidgetState
                           ),
                           HomeWidgets(context).filtroProgresso(_model),
                           if (responsiveVisibility(
-                              context: context, phone: false))
+                              context: context, phone: false, tablet: false))
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  16.0, 0.0, 16.0, 0.0),
+                              child: GridView.builder(
+                                gridDelegate:
+                                    SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 3,
+                                  crossAxisSpacing: 10.0,
+                                  mainAxisSpacing: 10.0,
+                                  childAspectRatio: 1.5,
+                                ),
+                                itemCount: cardWebList.length,
+                                primary: false,
+                                shrinkWrap: true,
+                                scrollDirection: Axis.vertical,
+                                itemBuilder: (BuildContext context, int index) {
+                                  return cardWebList[index];
+                                },
+                              ),
+                            ),
+                          if (responsiveVisibility(
+                            context: context,
+                            phone: false,
+                            desktop: false,
+                            tabletLandscape: false,
+                          ))
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   16.0, 0.0, 16.0, 0.0),
