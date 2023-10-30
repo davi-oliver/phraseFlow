@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:developer';
 import 'dart:io';
 
@@ -9,6 +8,7 @@ import 'package:http/http.dart' as http;
 import 'package:phrase_flow/backend/datasource/i_http_interface.dart';
 import 'package:phrase_flow/backend/err/errors.dart';
 import 'package:phrase_flow/app/global/global_info.dart';
+import 'package:phrase_flow/components/flutter_flow/flutter_flow_util.dart';
 
 class GetHttpRequestApp implements IHttpInterfaceGet {
   BuildContext context;
@@ -20,6 +20,22 @@ class GetHttpRequestApp implements IHttpInterfaceGet {
     String? params,
   }) async {
     try {
+      if (isWeb) {
+        log("isWeb >>> $isWeb");
+        final response = await http
+            .get(Uri.parse("$urlProd/$url/${params ?? ""}"), headers: {
+          "Accept": "application/json",
+        });
+
+        final int code = response.statusCode;
+
+        if (code > 300) {
+          final String description = jsonDecode(response.body)["message"];
+          throw HttpRequestFailure(code: code, descricao: description);
+        }
+
+        return right(jsonDecode(response.body));
+      }
       final response = await http.get(
         Uri.parse("$urlProd/$url/${params ?? ""}"),
         headers: {

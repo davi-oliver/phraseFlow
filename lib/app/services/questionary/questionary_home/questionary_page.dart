@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:percent_indicator/linear_percent_indicator.dart';
 import 'package:phrase_flow/app/global/theme/theme_mode.dart';
@@ -216,6 +218,13 @@ class _QuestionarioTiposState extends State<QuestionarioTipos> {
                                   hoverColor: Colors.transparent,
                                   highlightColor: Colors.transparent,
                                   onTap: () async {
+                                    if (questionarioStoreT.selectedIndex ==
+                                        questionarioStoreT.questions.length -
+                                            1) {
+                                      log("O index é ${questionarioStoreT.selectedIndex} e o length é ${questionarioStoreT.questions.length - 1}.");
+                                      context
+                                          .pushReplacementNamed("SuccessPage");
+                                    }
                                     setState(() {
                                       questionarioStore
                                           .animateControllerPageView();

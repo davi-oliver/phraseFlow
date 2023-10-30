@@ -172,12 +172,12 @@ class _IntroAppWidgetState extends State<IntroAppWidget> {
                                         Padding(
                                           padding:
                                               EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 0.0, 20.0),
+                                                  0.0, 0.0, 0.0, 5.0),
                                           child: Image.asset(
                                             'assets/images/onboarding_2@2x.png',
-                                            width: 300.0,
-                                            height: 270.0,
-                                            fit: BoxFit.fitHeight,
+                                            width: 150.0,
+                                            height: 200.0,
+                                            fit: BoxFit.cover,
                                           ),
                                         ),
                                       ],
